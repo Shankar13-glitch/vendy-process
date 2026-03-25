@@ -1,0 +1,122 @@
+{
+  "port_metadata": {
+    "port_name": "Salina Cruz",
+    "country": "Mexico",
+    "authority": "Secretariat of the Navy (SEMAR)",
+    "provider": "Compañía Marítima del Pacífico, S.A. de C.V.",
+    "effective_date": "2025-04-20",
+    "currency": "USD",
+    "vessel_dimension_unit": "Gross Register Tonnage (GRT / TRB)",
+    "vessel_dimension_source": "Vessel Tonnage Certificate",
+    "tax_note": "Rates do not include Value Added Tax (VAT)"
+  },
+  "geographic_scope_and_terminals": {
+    "primary_operating_area": "Port of Salina Cruz, Oaxaca",
+    "applicable_sections": [
+      "Main Basin (Dársena Principal)",
+      "Interior Basin (Dársena Interior)",
+      "Concessioned Federal Maritime Zone",
+      "Port Reserve"
+    ]
+  },
+  "calculation_definitions": {
+    "basic_quota": "The specific dollar amount found in the 'tariff_matrix_per_vessel' that matches the vessel's Gross Register Tonnage (TRB).",
+    "relevant_quota": "Identical to the 'basic_quota'; this term is used interchangeably in the rules as the base for penalty and waiting time calculations.",
+    "movement_time_definition": "Legally defined as 20 minutes before the time indicated in the service request",
+    "time_measurement_start": "Starts when lines are exchanged or when the tug is ready at the agreed location",
+    "time_measurement_end": "Ends when lines are cast off or as indicated by the pilot"
+  },
+  "tariff_matrix_per_vessel": [
+    {
+      "trb_range": "0 to 2,500",
+      "rate_usd": 25995.0,
+      "definition": "This value serves as the 'basic_quota' and 'relevant_quota' for vessels in this bracket"
+    },
+    {
+      "trb_range": "2,501 to 8,500",
+      "rate_usd": 43126.0,
+      "definition": "This value serves as the 'basic_quota' and 'relevant_quota' for vessels in this bracket"
+    },
+    {
+      "trb_range": "8,501 to 10,500",
+      "rate_usd": 59640.0,
+      "definition": "This value serves as the 'basic_quota' and 'relevant_quota' for vessels in this bracket"
+    },
+    {
+      "trb_range": "10,501 to 15,000",
+      "rate_usd": 79519.0,
+      "definition": "This value serves as the 'basic_quota' and 'relevant_quota' for vessels in this bracket"
+    },
+    {
+      "trb_range": "15,001 to 25,000",
+      "rate_usd": 110107.0,
+      "definition": "This value serves as the 'basic_quota' and 'relevant_quota' for vessels in this bracket"
+    },
+    {
+      "trb_range": "Over 25,001",
+      "rate_usd": 113162.0,
+      "definition": "This value serves as the 'basic_quota' and 'relevant_quota' for vessels in this bracket"
+    }
+  ],
+  "surcharges_discounts_and_multipliers": [
+    {
+      "name": "Small Vessel Discount",
+      "vessel_size_specific": "Vessels under 2,500 TRB",
+      "surcharge_pct": -30.0,
+      "multiplier": 0.7,
+      "calculation_logic": "Apply multiplier to the total amount of the maneuvers"
+    },
+    {
+      "name": "Bow Thruster Discount",
+      "vessel_equipment_specific": "Vessels with an operational Bow Thruster using only one tug",
+      "surcharge_pct": -10.0,
+      "multiplier": 0.9,
+      "calculation_logic": "Apply multiplier to the matching 'basic_quota' from the matrix"
+    },
+    {
+      "name": "Additional Time / Overtime",
+      "condition": "Service duration exceeds 1 hour",
+      "surcharge_pct": 25.0,
+      "multiplier": 0.25,
+      "basis": "Per 15 minutes or fraction thereof",
+      "calculation_logic": "Apply multiplier to the matching 'basic_quota' from the matrix"
+    },
+    {
+      "name": "Late Cancellation",
+      "condition": "Notice given < 1 hour before tug movement (Requested Time - 20 mins)",
+      "surcharge_pct": 25.0,
+      "multiplier": 0.25,
+      "calculation_logic": "Apply multiplier to the matching 'relevant_quota' from the matrix"
+    },
+    {
+      "name": "Cancellation After Movement",
+      "condition": "User desists from service once tugs have started moving",
+      "surcharge_pct": 75.0,
+      "multiplier": 0.75,
+      "calculation_logic": "Apply multiplier to the matching 'relevant_quota' from the matrix"
+    },
+    {
+      "name": "Waiting / Standby Time",
+      "condition": "Tugs must wait after the time indicated in request",
+      "surcharge_pct": 25.0,
+      "multiplier": 0.25,
+      "basis": "Per hour or fraction of wait time",
+      "calculation_logic": "Apply multiplier to the matching 'relevant_quota' from the matrix"
+    }
+  ],
+  "vessel_specific_exclusions": [
+    {
+      "vessel_type": "Tourist Cruise Ships",
+      "note": "2025 tariff updates do not apply; billed under previous authorized rates"
+    },
+    {
+      "service_type": "Salvage and Emergency Services",
+      "note": "Subject to negotiation based on international maritime customs"
+    }
+  ],
+  "administrative_rules": {
+    "notice_period": "Service must be requested in writing 3 hours in advance during business hours",
+    "payment_requirement": "Users must cover the estimated amount at the time of request; final adjustment made upon invoice",
+    "rounding_logic": "Duration is rounded up to the nearest 15-minute increment for overtime billing"
+  }
+}

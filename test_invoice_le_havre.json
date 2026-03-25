@@ -1,0 +1,58 @@
+{
+  "invoice_reference": "95391",
+  "internal_ref": "1215",
+  "purchase_order": "SCM2503435",
+  "vendor": "Boluda Le Havre",
+  "port": "Le Havre",
+  "vessel_name": "STI PIMLICO",
+  "vessel_imo": "9686871",
+  "vessel_gt": 24230,
+  "vessel_loa": 184.0,
+  "vessel_breadth": 27.44,
+  "vessel_draught": 11.91,
+  "invoice_date": "2025-10-10",
+  "service_date": "2025-10-07",
+  "currency": "EUR",
+  "notes": [
+    "TARIF 2025 (Autres) = TABLE_B (all other vessel types -- tanker falls here, not Antifer/Bougainville)",
+    "LOA 184m -> TABLE_B bracket 180-189.99m: rate = 2,648.36 per tug per service",
+    "2 tugs entry (VB FECAMP + VB YPORT) x 2,648.36 = 5,296.72",
+    "2 tugs departure (VB GASCOGNE + VB FECAMP) x 2,648.36 = 5,296.72",
+    "Service lines total: 10,593.44",
+    "Bunker surcharge: 624.00 (SURCHARGE EXCEPTIONNELLE DE SOUTE -- variable fuel adjustment, not tariff-calculable)",
+    "Invoice total: 10,593.44 + 624.00 = 11,217.44",
+    "No overtime: entry 50 min, departure ~30 min, both well under 2hr ZONE_2 standard allowance",
+    "VAT: 0% (EU VAT reverse charge -- French VAT exemption article 262-7e CGI)"
+  ],
+  "line_items": [
+    {
+      "service_type": "Berth",
+      "description": "ENTREE - ENTERING a Aval de MER (07.10.2025) -- VB FECAMP + VB YPORT (2 tugs)",
+      "date": "2025-10-07",
+      "loa": 184.0,
+      "zone": "TABLE_B",
+      "tug_count": 2,
+      "amount": 5296.72,
+      "note": "TABLE_B LOA 180-189.99m = 2,648.36 per tug. 2 tugs = 5,296.72."
+    },
+    {
+      "service_type": "Unberth",
+      "description": "SORTIE - LEAVING de poste CIE INDUSTR. (09.10.2025) -- VB GASCOGNE + VB FECAMP (2 tugs)",
+      "date": "2025-10-09",
+      "loa": 184.0,
+      "zone": "TABLE_B",
+      "tug_count": 2,
+      "amount": 5296.72,
+      "note": "TABLE_B LOA 180-189.99m = 2,648.36 per tug. 2 tugs = 5,296.72."
+    },
+    {
+      "service_type": "Bunker Surcharge",
+      "description": "SURCHARGE EXCEPTIONNELLE DE SOUTE - BUNKER ADJUSTEMENT",
+      "date": "2025-10-10",
+      "is_adjustment": true,
+      "amount": 624.00,
+      "note": "Variable fuel surcharge based on SOCOMET index. Not calculable from tariff -- informational only."
+    }
+  ],
+  "total_amount": 11217.44
+}

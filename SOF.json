@@ -1,0 +1,80 @@
+{
+  "vessel": {
+    "name": "HAFNIA SOYA",
+    "imo": "9719070",
+    "gt": 24120,
+    "flag": "Singapore",
+    "vessel_type": "tanker"
+  },
+  "port": "Algeciras",
+  "terminal": "Moeve",
+  "berth": "A",
+  "operation": "Discharge",
+  "cargo": "LSRUN",
+  "events": [
+    {
+      "type": "Inward",
+      "date": "2026-02-11",
+      "time": "13:00",
+      "tug_count": 2,
+      "duration_hrs": 1.3,
+      "benchmarks": {
+        "pilot_on_board": "12:00",
+        "tugs_made_fast": "13:00",
+        "first_line_ashore": "13:18",
+        "all_fast": "14:18",
+        "tugs_cast_off": "14:18"
+      }
+    },
+    {
+      "type": "Outward",
+      "date": "2026-02-13",
+      "time": "02:42",
+      "tug_count": 2,
+      "duration_hrs": 0.4,
+      "notes": "Weather-induced unmooring. Vessel proceeded to drifting.",
+      "benchmarks": {
+        "pilot_on_board": "02:42",
+        "tugs_made_fast": "02:42",
+        "commenced_unmooring": "02:48",
+        "all_lines_on_board": "03:00",
+        "tugs_cast_off": "03:06"
+      }
+    },
+    {
+      "type": "Inward",
+      "date": "2026-02-14",
+      "time": "14:42",
+      "tug_count": 2,
+      "duration_hrs": 1.3,
+      "benchmarks": {
+        "pilot_on_board": "14:24",
+        "tugs_made_fast": "14:42",
+        "first_line_ashore": "15:06",
+        "all_fast": "16:00",
+        "tugs_cast_off": "16:00"
+      }
+    },
+    {
+      "type": "Outward",
+      "date": "2026-02-15",
+      "time": "16:06",
+      "tug_count": 2,
+      "duration_hrs": 1.1,
+      "benchmarks": {
+        "pilot_on_board": "15:48",
+        "tugs_made_fast": "16:06",
+        "commenced_unmooring": "16:54",
+        "all_lines_on_board": "17:06",
+        "tugs_cast_off": "17:12",
+        "vessel_sailed": "17:36"
+      }
+    }
+  ],
+  "tug_count_confirmation": {
+    "source": "Agent email — Erhardt Algeciras, Valerii Kosheliev, 19-Feb-2026",
+    "confirmed_tug_count": 2,
+    "applies_to": "In/Out"
+  }
+}
+

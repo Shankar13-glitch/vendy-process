@@ -1,0 +1,37 @@
+{
+  "invoice_number": "0260040937",
+  "reference": "SCM2600232",
+  "date_of_issue": "2026-02-16",
+  "vendor_name": "Servicios Auxiliares de Puertos, S.A. (Sertosa)",
+  "port": "Algeciras",
+  "vessel_name": "HAFNIA SOYA",
+  "imo_number": "9729271",
+  "gross_tonnage": 24120,
+  "flag": "Singapore",
+  "currency": "EUR",
+  "line_items": [
+    {
+      "service_type": "Inward",
+      "date_of_service": "2026-02-11",
+      "tug_count": 2,
+      "tug_name": "SERTOSA VEINTISIETE / V.B.ALGECIRAS (SM)",
+      "amount": 3468.83,
+      "notes": null
+    },
+    {
+      "service_type": "Outward",
+      "date_of_service": "2026-02-13",
+      "tug_count": 2,
+      "tug_name": "SERTOSA VEINTISIETE / V.B.SIMUN (C)",
+      "amount": 3468.83,
+      "notes": "Handwritten note says Shift Out — invoice line says Desatraque/Unberth. Needs confirmation."
+    }
+  ],
+  "subtotal": 6937.66,
+  "tax_rate_pct": 0,
+  "tax_amount": 0.00,
+  "grand_total": 6937.66,
+  "requires_human_review": true,
+  "review_reason": "GT on invoice (24,120) differs from SOF (29,735). SOF has 4 events but only 2 are invoiced. Service type on line 2 ambiguous (Shift Out vs Unberth)."
+}
+

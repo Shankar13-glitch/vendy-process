@@ -1,0 +1,27 @@
+{
+  "vessel": {
+    "name": "ASTERION",
+    "imo": "9595125",
+    "flag": "France"
+  },
+  "port": "Valencia",
+  "voyage": "252",
+  "events": [
+    {
+      "type": "Berth",
+      "date": "2025-05-26",
+      "time": "02:36",
+      "tug_count": 2,
+      "duration_hrs": 0.8,
+      "notes": "Tug In 02:36, First Line Ashore 02:42, Tug Out 03:24"
+    },
+    {
+      "type": "Unberth",
+      "date": "2025-05-27",
+      "time": "15:54",
+      "tug_count": 2,
+      "duration_hrs": 0.3,
+      "notes": "Tug In 15:54, All Clear 16:04, Tug Out 16:12"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "port_metadata": {
+    "port_names": [
+      "Puerto Santo Domingo",
+      "Rio Haina"
+    ],
+    "country": "Dominican Republic",
+    "vendor": "Remolcadores y Barcazas del Caribe, S.A. (REBARCA / Boluda Towage)",
+    "currency": "USD",
+    "effective_date_reference": "April 2025",
+    "vessel_dimension_unit": "Gross Tonnage (GT)",
+    "rate_status": "Net rates (includes a 25% discount from the general rate)"
+  },
+  "billing_logic_definitions": {
+    "standard_service": "Charges apply per tug employed (e.g., VB-RON, VB-BONGO).",
+    "first_hour_logic": "Fixed rate per tug for the initial hour of service (Docking or Undocking).",
+    "additional_time_logic": {
+      "coverage": [
+        "Additional hours",
+        "Fractions of an hour",
+        "Extraordinary work"
+      ],
+      "rounding_rule": "Actual minutes from the Statement of Facts (SOF) are rounded up to the next multiple of 10 minutes.",
+      "calculation_example": "If service is 33 minutes, it is calculated prorata for 40 minutes: (first_Hour_Rate / 60) * 40."
+    }
+  },
+  "geographic_scope_and_terminals": {
+    "sections": [
+      {
+        "name": "Rio Haina",
+        "district": "Haina",
+        "terminals": [
+          "Rio Haina Port Terminals"
+        ]
+      },
+      {
+        "name": "Santo Domingo",
+        "district": "Bella Vista",
+        "terminals": [
+          "Puerto Santo Domingo",
+          "Monte Mirador Area"
+        ]
+      }
+    ]
+  },
+  "tariff_matrix_per_tug": [
+    {
+      "gross_tonnage_bracket": "Up to 8,000 GT",
+      "first_hour_rate": 516.59,
+      "vessel_type": "General Seagoing Vessels"
+    },
+    {
+      "gross_tonnage_bracket": "8,001 - 15,000 GT",
+      "first_hour_rate": 928.96,
+      "vessel_type": "General Seagoing Vessels"
+    },
+    {
+      "gross_tonnage_bracket": "15,001 - 20,000 GT",
+      "first_hour_rate": 1200.85,
+      "vessel_type": "General Seagoing Vessels"
+    },
+    {
+      "gross_tonnage_bracket": "20,001 - 30,000 GT",
+      "first_hour_rate": 1368.51,
+      "vessel_type": "General Seagoing Vessels"
+    },
+    {
+      "gross_tonnage_bracket": "30,001 - 40,000 GT",
+      "first_hour_rate": 1549.77,
+      "vessel_type": "General Seagoing Vessels"
+    },
+    {
+      "gross_tonnage_bracket": "40,001 GT and above",
+      "first_hour_rate": 1934.95,
+      "vessel_type": "General Seagoing Vessels"
+    }
+  ]
+}

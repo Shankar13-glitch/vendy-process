@@ -1,0 +1,56 @@
+{
+  "invoice_reference": "960025003789",
+  "vendor": "Boluda (Harbour Towage Ghent and River Scheldt)",
+  "port": "Ghent",
+  "vessel_name": "ELBABE",
+  "vessel_loa": "199,99",
+  "vessel_gt": "34.553",
+  "vessel_imo": "9725471",
+  "service_date": "2025-12-22",
+  "invoice_date": "2025-12-26",
+  "notes": [
+    "Discount 35% applied to gross tug charges: (8220 + 9220) * 35% = 6104.00",
+    "Bunker surcharge 11% applied to GROSS (pre-discount) total: 17440 * 11% = 1918.40",
+    "Both adjustments require human review — not reflected in standard tariff"
+  ],
+  "line_items": [
+    {
+      "service_type": "Departure",
+      "description": "Terneuzen Locks & Terneuzen Put Area",
+      "date": "2025-12-22",
+      "loa": "199,99",
+      "zone": "terneuzen_ghent_area_south",
+      "route_hint": "Terneuzen Roads to Terneuzen Locks / Put / Outerharbour or v.v.",
+      "tug_count": 2,
+      "amount": 8220.00
+    },
+    {
+      "service_type": "Departure",
+      "description": "Ghent Canal Area",
+      "date": "2025-12-22",
+      "loa": "199,99",
+      "zone": "terneuzen_ghent_area_south",
+      "route_hint": "Terneuzen Locks to Ghent Docks or v.v.",
+      "tug_count": 2,
+      "amount": 9220.00
+    },
+    {
+      "service_type": "Discount",
+      "description": "Discount 35% on tug charges",
+      "date": "2025-12-22",
+      "amount": -6104.00,
+      "is_adjustment": true,
+      "note": "Commercial/contractual discount — not in standard tariff. Requires separate authorisation verification."
+    },
+    {
+      "service_type": "Bunker Surcharge",
+      "description": "Bunker Surcharge 11%",
+      "date": "2025-12-22",
+      "amount": 1918.40,
+      "is_adjustment": true,
+      "note": "Applied to gross pre-discount total (17440 * 11% = 1918.40). Bunker rate variable — accepted on face value."
+    }
+  ],
+  "total_amount": 13254.40,
+  "currency": "EUR"
+}

@@ -1,0 +1,47 @@
+{
+  "invoice_reference": "0812007773",
+  "purchase_order": "SCM2600663",
+  "vendor": "Harbour Towage Rotterdam (Boluda Towage Rotterdam B.V.)",
+  "port": "Rotterdam",
+  "vessel_name": "STI CONNAUGHT",
+  "vessel_loa": "256,00",
+  "vessel_gt": "64.827",
+  "vessel_imo": "9697600",
+  "invoice_date": "2026-03-17",
+  "service_date": "2026-03-11",
+  "currency": "EUR",
+  "notes": [
+    "Discount 47% applied per tug to gross rate (4,648 x 47% = 2,184.56 per tug) — contractual, pending contract receipt",
+    "Bunker Adj. Factor 18% applied per tug to gross rate (4,648 x 18% = 836.64 per tug) — variable, accepted on face value",
+    "Duration: Tugs Made Fast 09:36, Tugs Released 11:36 = exactly 2hrs (within Europoort 2hr standard)"
+  ],
+  "line_items": [
+    {
+      "service_type": "Inward",
+      "description": "Arrival from sea to 7E PET Vopak Zeesteiger Vingerpier 4 West — Europoort",
+      "date": "2026-03-11",
+      "loa": "256,00",
+      "zone": "EUROPOORT_AREA",
+      "tug_count": 2,
+      "amount": 9296.00,
+      "note": "Gross base tug charge: 2 tugs x EUR 4,648 = EUR 9,296"
+    },
+    {
+      "service_type": "Discount",
+      "description": "Discounts 47% (per tug)",
+      "date": "2026-03-11",
+      "amount": -4369.12,
+      "is_adjustment": true,
+      "note": "Contractual discount — 2 x (4,648 x 47%) = 2 x 2,184.56 = 4,369.12. Pending contract verification."
+    },
+    {
+      "service_type": "Bunker Surcharge",
+      "description": "Bunker Adj. Factor 18% (per tug)",
+      "date": "2026-03-11",
+      "amount": 1673.28,
+      "is_adjustment": true,
+      "note": "Variable bunker surcharge — 2 x (4,648 x 18%) = 2 x 836.64 = 1,673.28. Accepted on face value."
+    }
+  ],
+  "total_amount": 6600.16
+}

@@ -1,0 +1,37 @@
+{
+  "invoice_reference": "0260040235",
+  "internal_ref": "1213",
+  "purchase_order": "SCM2600022",
+  "vendor": "Servicios Auxiliares de Puertos S.A. (Sertosa) / Boluda Towage Spain",
+  "port": "Cadiz Bay",
+  "vessel_name": "STI HAMMERSMITH",
+  "vessel_gt": "24,230",
+  "vessel_imo": "9706463",
+  "invoice_date": "2026-01-19",
+  "service_date": "2026-01-10",
+  "currency": "EUR",
+  "notes": [
+    "PO SCM2600022: 3 Tugs In only -- unberth (2 tugs out, 14.01.2026) is on a separate invoice",
+    "Zone: other_docks_excluding_santa_maria -- South Jetty is not Cadiz Dock, Santa Maria, or industrial/Navantia",
+    "GT 24,230 -> bracket '10,001 - 25,000': VP=0.3306, FP=-596.96",
+    "2025 tariff rate = (0.3306 x 24,230) - 596.96 = 8,010.44 - 596.96 = 7,413.48 EUR",
+    "Invoiced 7,503.11 vs expected 7,413.48 -> variance +89.63 EUR (+1.21%)",
+    "MISMATCH expected: tariff JSON effective 2025-01-15, invoice uses Jan 2026 rates (~1.2% annual increase)",
+    "Berth duration 70min < 120min standard threshold -- no delay/overtime surcharge",
+    "IVA NO SUJETO -- Inversion del sujeto pasivo (VAT reverse charge, 0 EUR)",
+    "3 tugs (VB ALMERIA, VB ROTA, VB JEREZ): rate is per maneuver regardless of tug count"
+  ],
+  "line_items": [
+    {
+      "service_type": "Berth",
+      "description": "Atraque / Berth 10.01.2026 -- VB ALMERIA + VB ROTA + VB JEREZ (3 tugs)",
+      "date": "2026-01-10",
+      "gt": "24,230",
+      "zone": "other_docks_excluding_santa_maria",
+      "tug_count": 3,
+      "amount": 7503.11,
+      "note": "2025 tariff: 7,413.48. 2026 invoice: 7,503.11. Delta +89.63 (+1.21%). Consistent with annual tariff update."
+    }
+  ],
+  "total_amount": 7503.11
+}

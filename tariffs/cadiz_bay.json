@@ -1,0 +1,244 @@
+{
+  "port_metadata": {
+    "port_name": "Cádiz Bay",
+    "country": "Spain",
+    "authority": "Port Authority of Cadiz",
+    "provider": "Boluda Towage Spain, SL",
+    "effective_date": "2025-01-15",
+    "currency": "EUR (€)",
+    "vessel_dimension_unit": "Gross Tonnage (GT)",
+    "vessel_dimension_source": "International conventions on tonnage (G.T.) with legally established corrections",
+    "billing_basis": "Tariffs are applied per maneuver, regardless of the number of tugs used."
+  },
+  "standard_calculation_logic": {
+    "formula": "Rate (€) = (VP * GT) + FP",
+    "components": {
+      "VP": "Variable Part (applied per GT)",
+      "GT": "Gross Tonnage of the vessel",
+      "FP": "Fixed Part (flat fee)"
+    },
+    "standard_duration_minutes": {
+      "general_docks": 120,
+      "navantia_facilities": 180
+    }
+  },
+  "geographic_sections_and_terminals": {
+    "cadiz_dock": {
+      "description": "Berth and unberth services at Cádiz Dock (Dársena de Cádiz)",
+      "tariffs": [
+        {
+          "gt_range": "0 - 5,000",
+          "vp": 0,
+          "fp": 1423.54
+        },
+        {
+          "gt_range": "5,001 - 10,000",
+          "vp": 0,
+          "fp": 1423.54
+        },
+        {
+          "gt_range": "10,001 - 25,000",
+          "vp": 0.1377,
+          "fp": 45.92
+        },
+        {
+          "gt_range": "25,001 - 50,000",
+          "vp": 0.0919,
+          "fp": 1193.93
+        },
+        {
+          "gt_range": "50,001 - 100,000",
+          "vp": 0.0689,
+          "fp": 2341.94
+        },
+        {
+          "gt_range": "100,001 - 1,000,000",
+          "vp": 0.0459,
+          "fp": 4637.97
+        }
+      ]
+    },
+    "other_docks_excluding_santa_maria": {
+      "description": "Berth and unberth services at Other Docks in Cádiz Bay (excluding Puerto de Santa María)",
+      "tariffs": [
+        {
+          "gt_range": "0 - 5,000",
+          "vp": 0,
+          "fp": 1102.09
+        },
+        {
+          "gt_range": "5,001 - 10,000",
+          "vp": 0,
+          "fp": 1653.14
+        },
+        {
+          "gt_range": "10,001 - 25,000",
+          "vp": 0.3306,
+          "fp": -596.96
+        },
+        {
+          "gt_range": "25,001 - 50,000",
+          "vp": 0.2985,
+          "fp": 206.64
+        },
+        {
+          "gt_range": "50,001 - 100,000",
+          "vp": 0.2755,
+          "fp": 1354.65
+        },
+        {
+          "gt_range": "100,001 - 1,000,000",
+          "vp": 0.2526,
+          "fp": 3650.68
+        }
+      ]
+    },
+    "puerto_de_santa_maria": {
+      "description": "Berth and unberth services at Puerto de Santa María",
+      "tariffs": [
+        {
+          "gt_range": "1 - 5,000",
+          "vp": 0,
+          "fp": 1102.09
+        },
+        {
+          "gt_range": "5,001 - 10,000",
+          "vp": 0,
+          "fp": 1836.82
+        },
+        {
+          "gt_range": "10,001 - 25,000",
+          "vp": 0.1837,
+          "fp": 0.0
+        },
+        {
+          "gt_range": "25,001 - 50,000",
+          "vp": 0.1377,
+          "fp": 1148.02
+        },
+        {
+          "gt_range": "50,001 - 100,000",
+          "vp": 0.0919,
+          "fp": 3444.04
+        },
+        {
+          "gt_range": "100,001+",
+          "vp": 0.0459,
+          "fp": 8036.09
+        }
+      ]
+    },
+    "industrial_facilities": {
+      "description": "Berth and unberth services at Navantia and Dragados Off-Shore Facilities",
+      "terminal_type": "Shipyard / Off-Shore Repair and Construction",
+      "max_duration_minutes": 180,
+      "tariffs": [
+        {
+          "gt_range": "0 - 5,000",
+          "vp": 0,
+          "fp": 2296.02
+        },
+        {
+          "gt_range": "5,001 - 10,000",
+          "vp": 0,
+          "fp": 3673.64
+        },
+        {
+          "gt_range": "10,001 - 25,000",
+          "vp": 0.4592,
+          "fp": 918.41
+        },
+        {
+          "gt_range": "25,001 - 50,000",
+          "vp": 0.372,
+          "fp": 3099.64
+        },
+        {
+          "gt_range": "50,001 - 100,000",
+          "vp": 0.3508,
+          "fp": 4270.6
+        },
+        {
+          "gt_range": "100,001 - 1,000,000",
+          "vp": 0.2296,
+          "fp": 18253.4
+        }
+      ]
+    }
+  },
+  "surcharges_and_multipliers": [
+    {
+      "name": "Towing Service Outside the Towing Line",
+      "description": "Towing or escorting through bay waters beyond the general navigation channel line",
+      "surcharge_pct": 25.0,
+      "multiplier": 1.25,
+      "applied_to": "Rate established for berth or unberth in the destination dock"
+    },
+    {
+      "name": "Dead Ship / Non-Propelled",
+      "description": "Services rendered to vessels with rudders without use or engines not running",
+      "vessel_condition_specific": "Engines or steering non-operational",
+      "surcharge_pct": 50.0,
+      "multiplier": 1.5,
+      "applied_to": "Applicable standard rate"
+    },
+    {
+      "name": "Zona Franca (Special Economic Zone)",
+      "geographic_application": "Services within the Zona Franca area",
+      "surcharge_pct": 25.0,
+      "multiplier": 1.25,
+      "exception": "Not applicable in El Puerto de Santa María",
+      "applied_to": "Applicable standard rate"
+    },
+    {
+      "name": "Internal Movement (Same Dock)",
+      "description": "Change of berth occurring on the same dock",
+      "surcharge_pct": 0.0,
+      "multiplier": 1.0,
+      "billing_rule": "Charged as a single service"
+    },
+    {
+      "name": "Internal Movement (Different Berths)",
+      "description": "Full service for change of berth between different interior locations",
+      "multiplier": 1.5,
+      "logic": "100% of unberth from origin + 50% of berth at destination"
+    },
+    {
+      "name": "Internal Movement (Different Docks/Facilities)",
+      "description": "Movement between distinct port facilities",
+      "multiplier": 2.0,
+      "logic": "100% of unberth from origin + 100% of berth at destination"
+    }
+  ],
+  "time_and_cancellation_charges": {
+    "extraordinary_services": {
+      "rate_eur_per_hour_per_tug": 1004.0,
+      "billing_unit": "Hour or fraction thereof",
+      "start_trigger": "Tugboat at agreed location at agreed time",
+      "end_trigger": "Vessel orders end of maneuver"
+    },
+    "delays": {
+      "condition": "Start or end delay > 30 minutes due to causes related to the vessel",
+      "rate_eur_per_hour_per_tug": 1004.0,
+      "billing_unit": "Hour or fraction thereof",
+      "calculation": "Number of tugs * 1004 EUR"
+    },
+    "cancellation_present": {
+      "condition": "Service suspended when tugs are already present at stipulated place/time",
+      "surcharge_pct": -50.0,
+      "multiplier": 0.5,
+      "applied_to": "Cancelled service rate"
+    },
+    "cancellation_advance": {
+      "condition": "Service cancelled with advanced warning",
+      "surcharge_pct": -75.0,
+      "multiplier": 0.25,
+      "applied_to": "Cancelled service rate"
+    }
+  },
+  "relevant_subtext": {
+    "additional_tugs": "Rates give right to usage of assigned tugs; additional tugs must be agreed separately regarding notice and availability.",
+    "language_precedence": "Drawn up in Spanish; English version is a translation. In case of dispute, the Official Spanish text published by the Port Authority of Cadiz takes precedence.",
+    "standard_maneuver_definitions": "Includes Towing Outside Line, Berthing, Unberthing, and Internal Movement as defined in section (b) of the document."
+  }
+}

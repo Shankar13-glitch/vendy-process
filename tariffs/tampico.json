@@ -1,0 +1,128 @@
+{
+  "port_metadata": {
+    "port_name": "Tampico",
+    "country": "Mexico",
+    "authority": "Secretariat of the Navy (SEMAR)",
+    "provider": "Compañía Marítima del Pacífico, S.A. de C.V.",
+    "effective_date": "2025-04-20",
+    "currency": "USD",
+    "vessel_dimension_unit": "Gross Register Tonnage (GRT / TRB)",
+    "vessel_dimension_source": "Vessel Tonnage Certificate issued by competent authority"
+  },
+  "geographic_scope_and_terminals": {
+    "primary_operating_area": "Port of Tampico, Tamaulipas",
+    "limits": "Jurisdictional waters of the Port of Tampico",
+    "terminals": [
+      "All terminals within the jurisdictional waters of the Port of Tampico",
+      "Terminals under the National Port System Administration (ASIPONA) Tampico"
+    ]
+  },
+  "calculation_definitions": {
+    "basic_quota": "The dollar rate obtained from 'tariff_matrix_per_vessel' corresponding to the vessel's Gross Register Tonnage (TRB).",
+    "indicated_quota": "Equivalent to the 'basic_quota'; used as the base for late cancellation fees.",
+    "said_quota": "Equivalent to the 'basic_quota'; used as the base for post-movement cancellation fees.",
+    "stipulated_quota": "Equivalent to the 'basic_quota'; used as the base for waiting time fees.",
+    "movement_time_definition": "Defined as 20 minutes before the hour indicated in the service request",
+    "time_measurement_start": "Starts when lines are given/received or when the tug is ready at the agreed location as per the pilot",
+    "time_measurement_end": "Ends when lines are cast off or as indicated by the pilot"
+  },
+  "tariff_matrix_per_vessel": [
+    {
+      "trb_range": "Under 2,500",
+      "rate_usd": 29642.0,
+      "definition": "Serves as the base quota for vessels in this size bracket"
+    },
+    {
+      "trb_range": "2,501 to 5,000",
+      "rate_usd": 39692.0,
+      "definition": "Serves as the base quota for vessels in this size bracket"
+    },
+    {
+      "trb_range": "5,001 to 7,500",
+      "rate_usd": 51866.0,
+      "definition": "Serves as the base quota for vessels in this size bracket"
+    },
+    {
+      "trb_range": "7,501 to 10,000",
+      "rate_usd": 56632.0,
+      "definition": "Serves as the base quota for vessels in this size bracket"
+    },
+    {
+      "trb_range": "10,001 to 12,500",
+      "rate_usd": 71189.0,
+      "definition": "Serves as the base quota for vessels in this size bracket"
+    },
+    {
+      "trb_range": "12,501 to 15,000",
+      "rate_usd": 92091.0,
+      "definition": "Serves as the base quota for vessels in this size bracket"
+    },
+    {
+      "trb_range": "Over 15,001",
+      "rate_usd": 107965.0,
+      "definition": "Serves as the base quota for vessels in this size bracket"
+    }
+  ],
+  "surcharges_discounts_and_multipliers": [
+    {
+      "name": "Small Vessel Discount",
+      "vessel_size_specific": "Vessels under 2,500 TRB",
+      "surcharge_pct": -30.0,
+      "multiplier": 0.7,
+      "calculation_logic": "Applicable charge is 70% of the total amount of the maneuvers"
+    },
+    {
+      "name": "Bow Thruster Discount",
+      "vessel_equipment_specific": "Vessels using an operational Bow Thruster and effectively using only one tug",
+      "surcharge_pct": -10.0,
+      "multiplier": 0.9,
+      "calculation_logic": "10% discount applied to the matching 'basic_quota' from the matrix"
+    },
+    {
+      "name": "Additional Time / Overtime",
+      "condition": "Service duration exceeds 1 hour",
+      "surcharge_pct": 25.0,
+      "multiplier": 0.25,
+      "basis_unit": "Per 15 minutes or fraction thereof",
+      "calculation_logic": "Charge is 25% of the matching 'basic_quota' for every 15-minute increment beyond the first hour"
+    },
+    {
+      "name": "Late Cancellation",
+      "condition": "Notice given within one hour before tug movement (Requested Time - 20 mins)",
+      "surcharge_pct": 25.0,
+      "multiplier": 0.25,
+      "calculation_logic": "25% charge of the matching 'indicated_quota' from the matrix"
+    },
+    {
+      "name": "Cancellation After Movement",
+      "condition": "User desists from service once tugs have started moving",
+      "surcharge_pct": 75.0,
+      "multiplier": 0.75,
+      "calculation_logic": "75% charge of the matching 'said_quota' from the matrix"
+    },
+    {
+      "name": "Waiting / Standby Time",
+      "condition": "Tugs must wait due to causes imputable to the user",
+      "surcharge_pct": 25.0,
+      "multiplier": 0.25,
+      "basis_unit": "Per hour or fraction of wait time",
+      "calculation_logic": "25% of the matching 'stipulated_quota' per hour of wait, starting from the hour indicated in the request"
+    }
+  ],
+  "vessel_specific_exclusions": [
+    {
+      "vessel_type": "Tourist Cruise Ships",
+      "note": "Authorized increments for 2025 do not apply; these vessels are billed under the tariff in office DGP.-1287/2024 dated April 4, 2024"
+    },
+    {
+      "service_type": "Salvage, Firefighting, and Special Services",
+      "note": "Not subject to fixed rates; subject to negotiation based on international maritime customs"
+    }
+  ],
+  "administrative_and_billing_rules": {
+    "notice_period": "Service must be requested in writing at least 3 hours in advance during provider office hours",
+    "duration_limit": "Basic rate covers a maximum of one hour",
+    "payment_requirement": "Estimated amount must be covered at the time of request; final adjustment made upon invoice presentation",
+    "dispute_resolution": "Controversies and unprovided cases are resolved by the General Directorate of Ports of SEMAR"
+  }
+}

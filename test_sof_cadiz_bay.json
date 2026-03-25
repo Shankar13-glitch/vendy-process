@@ -1,0 +1,34 @@
+{
+  "vessel": {
+    "name": "STI HAMMERSMITH",
+    "imo": "9706463",
+    "gt": 24230
+  },
+  "voyage": "200",
+  "port": "Cadiz",
+  "events": [
+    {
+      "type": "Berth",
+      "service_type": "Berth",
+      "date": "2026-01-10",
+      "tugs_alongside_time": "21:20",
+      "all_fast_time": "22:30",
+      "tugs_away_time": "22:30",
+      "tug_count": 3,
+      "berth_location": "South Jetty",
+      "duration_mins": 70,
+      "note": "Tugs Alongside 21:20 -> All Fast / Tugs Away 22:30 = 70min. Standard for general docks = 120min. No delay surcharge."
+    },
+    {
+      "type": "Unberth",
+      "service_type": "Unberth",
+      "date": "2026-01-14",
+      "tugs_alongside_time": "02:20",
+      "last_line_time": "02:25",
+      "tugs_away_time": "02:40",
+      "tug_count": 2,
+      "duration_mins": 20,
+      "note": "Unberth 14.01.2026 -- 2 tugs. Separate invoice (not part of this test). Duration 20min well under 120min threshold."
+    }
+  ]
+}

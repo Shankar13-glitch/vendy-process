@@ -1,0 +1,196 @@
+{
+  "port_authority": "North Sea Port",
+  "effective_date": "2026-01-01",
+  "currency": "EUR",
+  "logic_rules": {
+    "large_vessel_increment": {
+      "apply_above_meters": 265.0,
+      "increment_step_meters": 15.0,
+      "surcharge_per_step": 235.0,
+      "note": "Applicable for both North Sea Port North & South"
+    },
+    "dead_ship_surcharge": {
+      "multiplier": 1.5,
+      "percentage_increase": 50,
+      "condition": "Vessels without own engines or unable to use own propeller"
+    },
+    "time_limit_exceedance": {
+      "hourly_rate_per_tug": 1250.0,
+      "description": "Applies when total assistance time exceeds the max_duration_hrs specified per route"
+    }
+  },
+  "tariffs": {
+    "tariff_a_operational_engine": {
+      "description": "Per move and for each tug employed",
+      "flushing_area_north": [
+        {
+          "route": "Flushing East / Shifting or v.v.",
+          "max_duration_hrs": 2.0,
+          "rates": {
+            "up_to_114.99": 1450,
+            "115_to_129.99": 1675,
+            "130_to_144.99": 2075,
+            "145_to_159.99": 2230,
+            "160_to_174.99": 2335,
+            "175_to_189.99": 2490,
+            "190_to_204.99": 2605,
+            "205_to_219.99": 2800,
+            "220_to_234.99": 3200,
+            "235_to_249.99": 3350,
+            "250_to_264.99": 3700
+          }
+        },
+        {
+          "route": "Zeeland Refinery Jetty or v.v.",
+          "max_duration_hrs": 2.0,
+          "rates": {
+            "up_to_114.99": 2960,
+            "115_to_129.99": 3210,
+            "130_to_144.99": 3625,
+            "145_to_159.99": 4050,
+            "160_to_174.99": 4400,
+            "175_to_189.99": 4650,
+            "190_to_204.99": 4900,
+            "205_to_219.99": 5400,
+            "220_to_234.99": 5950,
+            "235_to_249.99": 6200,
+            "250_to_264.99": 6820
+          }
+        }
+      ],
+      "terneuzen_ghent_area_south": [
+        {
+          "route": "Terneuzen Roads to Braakman / Scheldt Jetty or v.v.",
+          "max_duration_hrs": 2.0,
+          "rates": {
+            "up_to_90.99": 2180,
+            "91_to_120.99": 2515,
+            "121_to_136.99": 3170,
+            "137_to_151.99": 3725,
+            "152_to_166.99": 4505,
+            "167_to_197.99": 5275,
+            "198_to_212.99": 6335,
+            "213_to_243.99": 7150,
+            "244_to_264.99": 7660
+          }
+        },
+        {
+          "route": "Terneuzen Roads to Terneuzen Locks / Put / Outerharbour or v.v.",
+          "max_duration_hrs": 3.0,
+          "rates": {
+            "up_to_90.99": 1800,
+            "91_to_120.99": 2100,
+            "121_to_136.99": 2650,
+            "137_to_151.99": 2925,
+            "152_to_166.99": 3225,
+            "167_to_197.99": 3750,
+            "198_to_212.99": 4360,
+            "213_to_243.99": 4615,
+            "244_to_264.99": 4885
+          }
+        },
+        {
+          "route": "Terneuzen Locks to Docks / Outerharbour / Canal Dolphins / Shifting or v.v.",
+          "max_duration_hrs": 3.0,
+          "rates": {
+            "up_to_90.99": 1680,
+            "91_to_120.99": 1800,
+            "121_to_136.99": 1935,
+            "137_to_151.99": 2410,
+            "152_to_166.99": 2865,
+            "167_to_197.99": 3330,
+            "198_to_212.99": 3945,
+            "213_to_243.99": 4530,
+            "244_to_264.99": 4890
+          }
+        },
+        {
+          "route": "Terneuzen Locks to Sluiskil / Shifting or v.v.",
+          "max_duration_hrs": 3.0,
+          "rates": {
+            "up_to_90.99": 2375,
+            "91_to_120.99": 2660,
+            "121_to_136.99": 3060,
+            "137_to_151.99": 3330,
+            "152_to_166.99": 3695,
+            "167_to_197.99": 3950,
+            "198_to_212.99": 4400,
+            "213_to_243.99": 4885,
+            "244_to_264.99": 5490
+          }
+        },
+        {
+          "route": "Terneuzen Locks to Zelzate / Sas van Ghent or v.v.",
+          "max_duration_hrs": 4.0,
+          "rates": {
+            "up_to_90.99": 3100,
+            "91_to_120.99": 3210,
+            "121_to_136.99": 3335,
+            "137_to_151.99": 3550,
+            "152_to_166.99": 3725,
+            "167_to_197.99": 3975,
+            "198_to_212.99": 4475,
+            "213_to_243.99": 5050,
+            "244_to_264.99": 5620
+          }
+        },
+        {
+          "route": "Terneuzen Locks to Ghent Docks or v.v.",
+          "max_duration_hrs": 4.0,
+          "rates": {
+            "up_to_90.99": 3305,
+            "91_to_120.99": 3370,
+            "121_to_136.99": 3620,
+            "137_to_151.99": 3780,
+            "152_to_166.99": 4175,
+            "167_to_197.99": 4515,
+            "198_to_212.99": 4890,
+            "213_to_243.99": 5430,
+            "244_to_264.99": 5830
+          }
+        }
+      ]
+    },
+    "tariff_b_additional_services": {
+      "port_of_ghent_assistance": {
+        "max_duration_hrs": 2.0,
+        "rates": {
+          "up_to_90.99": 2315,
+          "91_to_120.99": 2450,
+          "121_to_136.99": 2675,
+          "137_to_151.99": 2895,
+          "152_to_166.99": 3150,
+          "167_to_197.99": 3770,
+          "198_to_212.99": 4400,
+          "213_to_243.99": 4900,
+          "244_to_264.99": 5300
+        }
+      },
+      "anchorage_actions": {
+        "description": "Anchoring / Swinging / weighing anchor",
+        "rates": {
+          "up_to_90.99": 3500,
+          "91_to_120.99": 3700,
+          "121_to_136.99": 4200,
+          "137_to_151.99": 4850,
+          "152_to_166.99": 5650,
+          "167_to_197.99": 6600,
+          "198_to_212.99": 7200,
+          "213_to_243.99": 8250,
+          "244_to_264.99": 9100
+        }
+      }
+    }
+  },
+  "surcharges_general": {
+    "fuel": "Varying bunker surcharge applicable",
+    "cancellation": {
+      "percentage": 50,
+      "min_notice_hrs": 1,
+      "basis": "Tariff for each tug ordered and not used"
+    },
+    "standby_at_anchor": {
+      "hourly_rate_per_tug": 1250.0
+    }
+  }
+}

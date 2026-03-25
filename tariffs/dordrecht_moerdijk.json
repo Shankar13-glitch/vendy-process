@@ -1,0 +1,162 @@
+{
+  "port_metadata": {
+    "port_name": "Dordrecht and Moerdijk",
+    "effective_date": "2026-01-01",
+    "currency": "EUR",
+    "vessel_dimension_unit": "meters (m)",
+    "vessel_length_source": "Lloyd's Register of Shipping (o.a.)"
+  },
+  "tariff_a_matrix": {
+    "description": "Seagoing vessels with operational main engine, prices per move and for each tug employed",
+    "sections": [
+      {
+        "id": "section_1",
+        "description": "From the river to / or back",
+        "terminals": [
+          "Dordrecht Zeehaven",
+          "Julianahaven",
+          "Zwijndrecht",
+          "'s-Gravendeel"
+        ],
+        "rates": {
+          "up_to_138m": 2180,
+          "139m_150m": 2590,
+          "151m_163m": 2745,
+          "164m_175m": 2895,
+          "176m_187m": 3060,
+          "188m_212m": 3265,
+          "213m_236m": 3775
+        }
+      },
+      {
+        "id": "section_2",
+        "description": "Escorting/assistance from Dordrecht / Zwijndrecht to Rotterdam (Westgeul) along Oude Maas or back",
+        "rates": {
+          "up_to_138m": 5205,
+          "139m_150m": 6280,
+          "151m_163m": 7115,
+          "164m_175m": 7985,
+          "176m_187m": 8950,
+          "188m_212m": 10215,
+          "213m_236m": 12210
+        }
+      },
+      {
+        "id": "section_3",
+        "description": "Escorting/assistance from Spijkenisse to Westgeul or back",
+        "rates": {
+          "up_to_138m": 2265,
+          "139m_150m": 2665,
+          "151m_163m": 3010,
+          "164m_175m": 3305,
+          "176m_187m": 3665,
+          "188m_212m": 4125,
+          "213m_236m": 4775
+        }
+      },
+      {
+        "id": "section_4",
+        "description": "Escorting/assistance from Dordrecht / Zwijndrecht to Moerdijk along Dordtse Kil or back",
+        "rates": {
+          "up_to_138m": 3520,
+          "139m_150m": 4160,
+          "151m_163m": 4850,
+          "164m_175m": 5350,
+          "176m_187m": 6135,
+          "188m_212m": 6820,
+          "213m_236m": 8095
+        }
+      },
+      {
+        "id": "section_5",
+        "description": "Moerdijk in connection with escorting/assistance along Dordtse Kil",
+        "rates": {
+          "up_to_138m": 1720,
+          "139m_150m": 2040,
+          "151m_163m": 2285,
+          "164m_175m": 2535,
+          "176m_187m": 2770,
+          "188m_212m": 3140,
+          "213m_236m": 3640
+        }
+      },
+      {
+        "id": "section_6",
+        "description": "Moerdijk without escorting/assistance along Dordtse Kil",
+        "rates": {
+          "up_to_138m": 3520,
+          "139m_150m": 4160,
+          "151m_163m": 4850,
+          "164m_175m": 5350,
+          "176m_187m": 6140,
+          "188m_212m": 6825,
+          "213m_236m": 8095
+        }
+      }
+    ]
+  },
+  "tariff_b_shifting": {
+    "relative_increases": {
+      "same_quay_or_harbour": 1.25,
+      "between_harbours_same_section": 1.4
+    },
+    "formulaic_geographic_shifts": [
+      {
+        "route": "From Zeehaven or Julianahaven to Handelskade",
+        "formula": "section_1_base_rate * 1.50"
+      },
+      {
+        "route": "From 1st Merwedehaven to 2nd Merwedehaven",
+        "formula": "section_1_base_rate * 1.50"
+      },
+      {
+        "route": "From river near Handelskade to 1st or 2nd Merwedehaven",
+        "formula": "section_1_base_rate * 1.60"
+      },
+      {
+        "route": "From Zeehaven/Julianahaven to 1st or 2nd Merwedehaven (or back)",
+        "formula": "section_1_base_rate * 1.75"
+      }
+    ]
+  },
+  "additional_hourly_rates": {
+    "special_assistance": {
+      "description": "Compass Adjustment, Holding A stream, Extra Pushing to berth",
+      "rate_eur_per_hour": 890
+    },
+    "waiting_time": {
+      "rate_eur_per_half_hour": 675,
+      "grace_period_mins": 30,
+      "minimum_charge_logic": "min one half hour"
+    }
+  },
+  "surcharge_logic": {
+    "dead_ship": {
+      "multiplier": 1.5,
+      "description": "50% surcharge on all rates (waiting and fog excluded)"
+    },
+    "cancellation": {
+      "multiplier": 0.5,
+      "notice_period_required_hrs": 2,
+      "description": "Half tariff charged if notice < 2 hours or tug dismissed unused"
+    },
+    "limited_visibility_fog": {
+      "multiplier": 1.5,
+      "visibility_threshold_m": 500,
+      "description": "50% surcharge (waiting and column 9 excluded)"
+    },
+    "additional_pulling_power": {
+      "multiplier": 1.5,
+      "description": "50% surcharge on basic rates"
+    },
+    "holiday": {
+      "multiplier": 1.25,
+      "window_logic": "17:00 hrs day before till 07:00 hrs day after",
+      "description": "25% surcharge on officially recognized holidays"
+    },
+    "fuel_trigger": {
+      "price_per_ton_eur": 135,
+      "description": "Bunker surcharge applicable if prices exceed trigger"
+    }
+  }
+}

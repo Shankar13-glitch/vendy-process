@@ -1,0 +1,220 @@
+{
+  "port_metadata": {
+    "port_name": "Huelva",
+    "country": "Spain",
+    "provider": "Boluda Towage Spain",
+    "effective_date": "2025-07-17",
+    "currency": "EUR (€)",
+    "vessel_dimension_unit": "Gross Tonnage (GT)",
+    "vessel_dimension_source": "International conventions on tonnage (G.T.) with legally established corrections"
+  },
+  "calculation_logic": {
+    "standard_formula": "Rate (€) = (VP * GT) + FP",
+    "vp_definition": "Variable Part (per GT unit)",
+    "fp_definition": "Fixed Part (flat fee)",
+    "application_basis": "Tariffs are applied per maneuver, regardless of the number of tugs used (unless specifically noted for hourly services)."
+  },
+  "geographic_and_terminal_scopes": {
+    "monobuoy": {
+      "name": "Monobuoy",
+      "description": "Specific offshore mooring facility for tankers",
+      "vessel_type_specific": "Tankers/Liquid Bulk"
+    },
+    "lng_terminal": {
+      "name": "LNG Terminal",
+      "vessel_type_specific": "Large LNG Carriers"
+    },
+    "general_docks": {
+      "name": "General Traffic Berths",
+      "vessel_type_specific": "General Cargo, Bulkers, etc."
+    },
+    "ro_ro_container_terminals": {
+      "name": "Ro-Ro and Container Berths",
+      "vessel_type_specific": "Ro-Ro vessels, Ferries, and Container Ships"
+    }
+  },
+  "tariff_matrix": {
+    "general_traffic": {
+      "description": "Berth and unberth services for general traffic",
+      "rates": [
+        {
+          "gt_range": "0 - 5,000",
+          "vp": 0,
+          "fp": 920.0
+        },
+        {
+          "gt_range": "5,001 - 10,000",
+          "vp": 0.1002,
+          "fp": 982.85
+        },
+        {
+          "gt_range": "10,001 - 15,000",
+          "vp": 0.1056,
+          "fp": 2285.7
+        },
+        {
+          "gt_range": "15,001 - 25,000",
+          "vp": 0.14136,
+          "fp": 2699.9
+        },
+        {
+          "gt_range": "Over 25,001",
+          "vp": 0.14725,
+          "fp": 2992.5
+        }
+      ]
+    },
+    "ro_ro_ferry_container": {
+      "description": "Berth and unberth services for Ro-Ro, Ferries, and Container Ships",
+      "rates": [
+        {
+          "gt_range": "0 - 5,000",
+          "vp": 0.04001,
+          "fp": 129.92
+        },
+        {
+          "gt_range": "5,001 - 10,000",
+          "vp": 0.04746,
+          "fp": 465.56
+        },
+        {
+          "gt_range": "10,001 - 15,000",
+          "vp": 0.05002,
+          "fp": 1082.7
+        },
+        {
+          "gt_range": "15,001 - 25,000",
+          "vp": 0.06696,
+          "fp": 1278.9
+        },
+        {
+          "gt_range": "Over 25,001",
+          "vp": 0.06975,
+          "fp": 1417.5
+        }
+      ]
+    },
+    "large_lng_carriers": {
+      "description": "Berth and unberth services for Large LNG Carriers",
+      "rates": [
+        {
+          "gt_range": "0 - 50,000",
+          "vp": 0.21,
+          "fp": 3400.0
+        },
+        {
+          "gt_range": "50,001 - 60,000",
+          "vp": 0.228,
+          "fp": 3500.0
+        },
+        {
+          "gt_range": "60,001 - 70,000",
+          "vp": 0.281,
+          "fp": 4850.0
+        },
+        {
+          "gt_range": "70,001 - 80,000",
+          "vp": 0.334,
+          "fp": 6200.0
+        },
+        {
+          "gt_range": "80,001 - 90,000",
+          "vp": 0.3875,
+          "fp": 7550.0
+        },
+        {
+          "gt_range": "90,001 - 100,000",
+          "vp": 0.4144,
+          "fp": 8984.0
+        },
+        {
+          "gt_range": "Over 100,001",
+          "vp": 0.4422,
+          "fp": 9990.0
+        }
+      ]
+    },
+    "monobuoy_maneuvers": {
+      "description": "Berth and unberth services at Monobuoy",
+      "geographic_focus": "Offshore Monobuoy Area",
+      "rates": [
+        {
+          "gt_range": "0 - 70,000",
+          "vp": 0.1251,
+          "fp": 0
+        },
+        {
+          "gt_range": "Over 70,001",
+          "vp": 0.1354,
+          "fp": 0
+        }
+      ]
+    }
+  },
+  "specific_services_and_surcharges": [
+    {
+      "name": "Shifting and Internal Movements",
+      "condition": "Moving vessel between interior points",
+      "surcharge_pct": 50.0,
+      "multiplier": 1.5,
+      "applied_to": "Total applicable tariff for the maneuver"
+    },
+    {
+      "name": "Dead Ship / Engines Not Running",
+      "condition": "Services rendered to vessels whose engines are not running",
+      "surcharge_pct": 50.0,
+      "multiplier": 1.5,
+      "applied_to": "Total applicable tariff"
+    },
+    {
+      "name": "Service Cancellation",
+      "condition": "Request cancelled after the tugboat has departed from its base",
+      "penalty_pct": 50.0,
+      "multiplier": 0.5,
+      "applied_to": "Applicable maneuver tariff"
+    },
+    {
+      "name": "Standby at Monobuoy",
+      "geographic_focus": "Monobuoy",
+      "rate_eur_per_hour_per_tug": 575.0,
+      "billing_unit": "Hour or fraction thereof"
+    },
+    {
+      "name": "Escorting, Availability, or Special Services",
+      "rate_eur_per_hour_per_tug": 1500.0,
+      "billing_unit": "Hour or fraction thereof"
+    }
+  ],
+  "delay_logic": {
+    "description": "Delays attributable to the vessel during service provision beyond usual estimated maneuver times.",
+    "surcharge_type": "Penalty equal to the maximum applicable tariff",
+    "multiplier_effect": 2.0,
+    "time_measurement": {
+      "start": "Moment tugboat is positioned to begin maneuver (alongside or intervention point)",
+      "end": "Moment order is issued by competent authority declaring operation complete"
+    },
+    "reference_time_thresholds_minutes": [
+      {
+        "vessel_tariff_type": "General Tariff",
+        "threshold_mins": 80
+      },
+      {
+        "vessel_tariff_type": "Ro-Ro, Ferry, and Container Ship Tariff",
+        "threshold_mins": 70
+      },
+      {
+        "vessel_tariff_type": "Large LNG Carrier Tariff",
+        "threshold_mins": 150
+      },
+      {
+        "vessel_tariff_type": "Monobuoy Tariff",
+        "threshold_mins": 240,
+        "note": "Based on bollard pull criteria"
+      }
+    ]
+  },
+  "relevant_subtext": {
+    "official_language": "Original text in Spanish takes precedence over English translation in case of disputes.",
+    "authority": "Harbour Towage conditions drawn up by the Port Authority of Huelva."
+  }
+}

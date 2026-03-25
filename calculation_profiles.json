@@ -1,0 +1,628 @@
+
+{
+  "calculation_profiles": {
+    "Ghent": {
+      "dimension_type": "LOA_meters",
+      "billing_basis": "per_tug_per_move",
+      "calculation_pattern": "bracket_lookup",
+      "zone_determines_rate": true,
+      "zones": [
+        "flushing_area_north",
+        "terneuzen_ghent_area_south"
+      ],
+      "tug_count_source": "invoice",
+      "overtime_handler": "hourly_supplement_at_1250_per_tug",
+      "requires_human_review_for": [],
+      "notes": "Large vessel increment applies above 265m LOA in 15m steps at €235/step"
+    },
+    "Le_Havre": {
+      "dimension_type": "LOA_meters",
+      "billing_basis": "per_tug_per_move",
+      "calculation_pattern": "bracket_lookup",
+      "zone_determines_rate": true,
+      "zones": [
+        "ZONE_1",
+        "ZONE_2",
+        "ZONE_3",
+        "ZONE_4",
+        "ZONE_5",
+        "ZONE_6",
+        "ZONE_7"
+      ],
+      "vessel_type_determines_table": true,
+      "tables": [
+        "TABLE_A_containers_car_carriers",
+        "TABLE_B_all_other_vessels",
+        "TABLE_C_antifer_tankers",
+        "TABLE_D_bougainville_lng"
+      ],
+      "tug_count_source": "invoice",
+      "overtime_handler": "30pct_surcharge_on_assist_rate_after_time_allowance",
+      "zone_surcharges": {
+        "ZONE_4": "50% surcharge on assist rate",
+        "ZONE_5": "100% surcharge on assist rate"
+      },
+      "hourly_special_services": {
+        "base_1st_2nd_hour": 1600.94,
+        "trigger": "after standard assist to berth if tug retained"
+      },
+      "requires_human_review_for": [
+        "zone_7_excess_billing_stacking"
+      ],
+      "data_quality_flag": "RESOLVED: TABLE_C LOA 403-410.99m rate confirmed as 11917.92 EUR",
+      "notes": "Zone 7 container ships: flat €211 surcharge + 30% excess; unresolved whether 30% stacks on waiting time surcharge too"
+    },
+    "Antwerp": {
+      "dimension_type": "LOA_meters",
+      "billing_basis": "per_tug_per_move",
+      "calculation_pattern": "bracket_lookup",
+      "zone_determines_rate": true,
+      "zones": [
+        "ZANDVLIET_KRUISSCHANS",
+        "KALLO",
+        "ANTWERP_CITY"
+      ],
+      "tug_count_source": "invoice",
+      "overtime_handler": "hourly_supplement_at_1250_per_tug_after_2hrs",
+      "zone_rate_columns": {
+        "ZANDVLIET_KRUISSCHANS": "zandvliet_kallo_rate_eur",
+        "KALLO": "zandvliet_kallo_rate_eur",
+        "ANTWERP_CITY": "antwerp_city_rate_eur"
+      },
+      "surcharge_multipliers": {
+        "dead_ship": 1.5,
+        "sunday_public_holiday": 1.5,
+        "hemiksem_hoboken": 1.15
+      },
+      "shifting_logic": "cumulative_sum_of_assisted_sections",
+      "requires_human_review_for": [],
+      "notes": "Holiday window: 22:00 day before to 07:00 day after"
+    },
+    "Rotterdam": {
+      "dimension_type": "LOA_meters",
+      "billing_basis": "per_tug_per_move",
+      "calculation_pattern": "bracket_lookup",
+      "zone_determines_rate": true,
+      "zones": [
+        "ROTTERDAM_AREA",
+        "EUROPOORT_AREA",
+        "MAASVLAKTE_II"
+      ],
+      "tug_count_source": "invoice",
+      "overtime_handler": "hourly_at_1425_per_tug_in_15min_increments",
+      "zone_rate_columns": {
+        "ROTTERDAM_AREA": "rotterdam_rate",
+        "EUROPOORT_AREA": "europoort_rate",
+        "MAASVLAKTE_II": "maasvlakte_ii_rate"
+      },
+      "shifting_logic": {
+        "intra_area": "40pct_surcharge_max_3hrs",
+        "inter_area": "special_arrangement_required"
+      },
+      "special_surcharges": {
+        "LNG_vessels": 2.5,
+        "deep_draft_vessels": 1.5,
+        "fog_visibility_under_500m": 1.5,
+        "holidays": 1.25
+      },
+      "requires_human_review_for": [
+        "inter_area_shifts"
+      ],
+      "notes": "Fog surcharge excludes waiting time. Holiday window: 17:00 day before to 07:00 day after"
+    },
+    "Dordrecht_Moerdijk": {
+      "dimension_type": "LOA_meters",
+      "billing_basis": "per_tug_per_move",
+      "calculation_pattern": "bracket_lookup",
+      "zone_determines_rate": true,
+      "zones": [
+        "section_1",
+        "section_2",
+        "section_3",
+        "section_4",
+        "section_5",
+        "section_6"
+      ],
+      "tug_count_source": "invoice",
+      "shifting_logic": "multiplier_on_section_1_base_rate",
+      "waiting_time_handler": "675_per_half_hour_after_30min_grace",
+      "fog_surcharge": {
+        "multiplier": 1.5,
+        "threshold_m": 500,
+        "exclusions": [
+          "waiting_time",
+          "column_9_undefined"
+        ]
+      },
+      "requires_human_review_for": [
+        "column_9_undefined"
+      ],
+      "open_doubts": [
+        "Section 1 terminals confirmed as Zeehaven/Julianahaven/Zwijndrecht/s-Gravendeel",
+        "Column 9 referenced in fog surcharge exclusion is undefined — fog surcharge applicability uncertain for these services"
+      ]
+    },
+    "Santo_Domingo_Haina": {
+      "dimension_type": "GT",
+      "billing_basis": "per_tug_per_move",
+      "calculation_pattern": "bracket_lookup",
+      "zone_determines_rate": false,
+      "tug_count_source": "invoice",
+      "overtime_handler": "prorata_10min_rounding_on_first_hour_rate",
+      "billing_logic": {
+        "first_hour": "fixed_rate_per_tug",
+        "additional_time": "actual_minutes_rounded_up_to_next_10min_multiple"
+      },
+      "requires_human_review_for": [],
+      "notes": "Rates are net (25% discount already applied). Bunker surcharge variable — accepted as invoiced"
+    },
+    "Brake": {
+      "dimension_type": "GT",
+      "billing_basis": "per_tug_per_move",
+      "calculation_pattern": "bracket_lookup",
+      "zone_determines_rate": false,
+      "tug_count_source": "invoice",
+      "tariff_b_billing_basis": "per_tug_per_hour_by_bollard_pull",
+      "bollard_pull_source": "invoice_face_value",
+      "overtime_handler": "first_60min_full_hour_then_30min_increments",
+      "oversize_logic": "376_per_10000gt_above_200000gt",
+      "requires_human_review_for": [
+        "holding_pushing_verification"
+      ],
+      "notes": "Holding/pushing condition stated in invoice text only — not verifiable from SOF. Accepted on face value unless SOF contradicts. Late order surcharge: 100% (2x) if ordered < 4hrs notice"
+    },
+    "Rostock": {
+      "dimension_type": "GT",
+      "billing_basis": "per_tug_per_move",
+      "calculation_pattern": "bracket_lookup",
+      "zone_determines_rate": true,
+      "zones": [
+        "sector_1_standard",
+        "sector_2_fishery_stadthafen"
+      ],
+      "sector_2_surcharge": 1.25,
+      "tug_count_source": "invoice",
+      "tariff_b_handler": "hourly_at_1150_standard_or_1610_strong_winds",
+      "wind_trigger_bft": 6,
+      "oversize_logic": "571_per_10000gt_above_50000gt",
+      "requires_human_review_for": [
+        "ice_breaking_base_tariff"
+      ],
+      "open_doubts": [
+        "Ice surcharge (25%) and ice breaking (50%) both reference 'Tariff A and B' but it is ambiguous whether surcharge applies to Tariff A only, Tariff B only, or both combined"
+      ],
+      "notes": "Evening/weekend/holiday surcharge (25%) applies only if at least 50% of service is outside Mon-Fri 07:00-17:00"
+    },
+    "Altamira": {
+      "dimension_type": "GRT",
+      "billing_basis": "per_tug_per_move",
+      "calculation_pattern": "bracket_lookup",
+      "zone_determines_rate": false,
+      "vessel_equipment_affects_rate": true,
+      "bow_thruster_column": "with_bow_thruster_rate",
+      "no_bow_thruster_column": "without_bow_thruster_rate",
+      "bow_thruster_exception": "if_two_tugs_requested_use_without_bow_thruster_rate",
+      "tug_count_source": "invoice",
+      "overtime_handler": "25pct_of_base_per_15min_after_1hr",
+      "small_vessel_discount": "70pct_of_minimum_scale_for_vessels_under_2500_GRT",
+      "requires_human_review_for": [],
+      "notes": "Tourist cruise ships excluded — billed under separate authorization. Standard duration: 1 hour. Movement time legally defined as 20 mins before request time"
+    },
+    "Coatzacoalcos": {
+      "dimension_type": "GRT",
+      "billing_basis": "per_hp_per_hour",
+      "calculation_pattern": "hp_hourly",
+      "zone_determines_rate": false,
+      "rate_lookup": "GRT_determines_rate_per_hp_hour",
+      "tug_count_source": "invoice",
+      "tug_hp_source": "invoice_face_value",
+      "overtime_handler": "25pct_of_base_per_15min_after_1hr",
+      "bow_thruster_discount": "10pct_if_single_tug_and_bow_thruster_operational",
+      "small_vessel_discount": "70pct_for_vessels_under_3000_GRT",
+      "requires_human_review_for": [],
+      "notes": "Formula: rate_per_hp_hour × tug_HP × hours. Standard duration: 1 hour"
+    },
+    "Ensenada": {
+      "dimension_type": "GRT",
+      "billing_basis": "per_service",
+      "calculation_pattern": "per_service_tug_count_specific",
+      "zone_determines_rate": false,
+      "rate_lookup": "TRB_range_and_tug_count_and_arrival_departure",
+      "tug_count_source": "invoice",
+      "tug_utilization_rules": {
+        "arrivals": "generally_two_tugs",
+        "departures": "one_or_two_depending_on_safety_criteria",
+        "third_tug": "charged_at_basic_quota_for_vessel_TRB"
+      },
+      "overtime_handler": "25pct_of_base_per_15min_after_1hr",
+      "bow_thruster_discount": "10pct_if_single_tug_and_bow_thruster_operational",
+      "small_vessel_discount": "70pct_for_vessels_under_2500_TRB",
+      "requires_human_review_for": [],
+      "notes": "Rate table has null for one_tug_arrival for larger vessels — two tugs mandatory. Rate is per service, not per tug"
+    },
+    "Guaymas": {
+      "dimension_type": "GRT",
+      "billing_basis": "per_service",
+      "calculation_pattern": "bracket_lookup",
+      "zone_determines_rate": false,
+      "tug_count_source": "invoice",
+      "overtime_handler": "25pct_of_base_per_15min_after_1hr",
+      "third_tug_surcharge": "50pct_of_basic_quota",
+      "bow_thruster_discount": "10pct_if_single_tug_and_bow_thruster_operational",
+      "small_vessel_discount": "70pct_for_vessels_under_3000_TRB",
+      "requires_human_review_for": [],
+      "notes": "Standard duration: 1 hour. Rate is per service per maneuver"
+    },
+    "Manzanillo": {
+      "dimension_type": "GRT",
+      "billing_basis": "per_service",
+      "calculation_pattern": "bracket_lookup",
+      "zone_determines_rate": false,
+      "tug_count_source": "invoice",
+      "overtime_handler": "25pct_of_base_per_15min_after_1hr",
+      "third_tug_surcharge": "50pct_of_basic_quota",
+      "bow_thruster_discount": "10pct_if_single_tug_and_bow_thruster_operational",
+      "small_vessel_discount": "70pct_for_vessels_under_3000_GRT",
+      "requires_human_review_for": [],
+      "notes": "Bow thruster discount only applies to vessels over 15,000 GRT — narrower than other Mexican ports"
+    },
+    "Mazatlan": {
+      "dimension_type": "GRT",
+      "billing_basis": "per_hp_per_hour",
+      "calculation_pattern": "hp_hourly",
+      "zone_determines_rate": false,
+      "rate_lookup": "TRB_determines_rate_per_hp_hour",
+      "tug_count_source": "invoice",
+      "tug_hp_source": "invoice_face_value",
+      "overtime_handler": "25pct_of_base_per_15min_after_1hr",
+      "bow_thruster_discount": "10pct_if_single_tug_and_bow_thruster_operational",
+      "small_vessel_discount": "70pct_for_vessels_under_3000_TRB",
+      "requires_human_review_for": [],
+      "notes": "Same HP/hour pattern as Coatzacoalcos. Minimum charge = 1 hour equivalent"
+    },
+    "Salina_Cruz": {
+      "dimension_type": "GRT",
+      "billing_basis": "per_service",
+      "calculation_pattern": "bracket_lookup",
+      "zone_determines_rate": false,
+      "tug_count_source": "invoice",
+      "overtime_handler": "25pct_of_base_per_15min_after_1hr",
+      "bow_thruster_discount": "10pct_if_single_tug_and_bow_thruster_operational",
+      "small_vessel_discount": "70pct_for_vessels_under_2500_TRB",
+      "requires_human_review_for": [],
+      "notes": "basic_quota and relevant_quota are identical — both reference the TRB bracket rate"
+    },
+    "Tampico": {
+      "dimension_type": "GRT",
+      "billing_basis": "per_service",
+      "calculation_pattern": "bracket_lookup",
+      "zone_determines_rate": false,
+      "tug_count_source": "invoice",
+      "overtime_handler": "25pct_of_base_per_15min_after_1hr",
+      "bow_thruster_discount": "10pct_if_single_tug_and_bow_thruster_operational",
+      "small_vessel_discount": "70pct_for_vessels_under_2500_TRB",
+      "requires_human_review_for": [],
+      "notes": "basic_quota, indicated_quota, said_quota, stipulated_quota all refer to same TRB bracket rate — different names for same base"
+    },
+    "Panama": {
+      "dimension_type": "none",
+      "billing_basis": "per_hour",
+      "calculation_pattern": "hourly_with_minimum",
+      "zone_determines_rate": true,
+      "zones": [
+        "Balboa_Port_Terminals",
+        "Panama_Bay_Pacific",
+        "Chiriqui_Grande_SPM",
+        "Chiriqui_Grande_Port",
+        "Colon_Port_Terminals",
+        "Bahia_las_Minas"
+      ],
+      "tug_count_source": "invoice",
+      "overtime_handler": "prorated_every_15min",
+      "area_specific_logic": {
+        "Balboa_Colon": "per_hour_straight",
+        "Panama_Bay_Chiriqui_Port_Bahia_Minas": "flat_rate_first_3hrs_then_1957_per_additional_hour",
+        "Chiriqui_SPM": "per_hour_with_minimum_charge_41200_USD"
+      },
+      "time_counting": "tug_leaves_station_to_tug_returns_station",
+      "requires_human_review_for": [],
+      "notes": "Vessel dimensions not used for rate lookup. Shifting = one undocking + one docking"
+    },
+    "Castellon": {
+      "dimension_type": "GT",
+      "billing_basis": "per_service",
+      "calculation_pattern": "fixed_plus_variable",
+      "operative_tariff": "Port_Authority_document",
+      "zone_determines_rate": true,
+      "zones": [
+        "Zone_I",
+        "Zone_II_Campo_de_Boyas"
+      ],
+      "vessel_type_determines_table": true,
+      "tables": [
+        "general_tariff_zone_i",
+        "tanker_vessel_tariff_zone_i",
+        "tanker_vessel_tariff_zone_ii"
+      ],
+      "formula": "Rate = IF + (IV * GT)",
+      "tug_count_source": "not_applicable",
+      "standard_duration_mins": {
+        "Zone_I": 120,
+        "Zone_II": 180
+      },
+      "special_services_hourly": 1057.3,
+      "requires_human_review_for": [],
+      "notes": "Port Authority tariff is operative document (NOT Boluda 2026). Cancellation is a fixed €1,057.30 fee, not a percentage. No night/holiday surcharges permitted per Article 113.4 TRLPEMM"
+    },
+    "Tenerife_La_Palma": {
+      "dimension_type": "GT",
+      "billing_basis": "per_service",
+      "calculation_pattern": "fixed_plus_variable",
+      "zone_determines_rate": true,
+      "zones": [
+        "la_hodura_oil_terminal",
+        "comercial",
+        "granadilla",
+        "sta_cruz_la_palma",
+        "gomera_estaca_cristianos"
+      ],
+      "formula": "Rate = Fixed + (Variable * GT)",
+      "tug_count_source": "not_applicable",
+      "standard_duration_hrs": 1.0,
+      "commute_surcharges": true,
+      "commute_surcharge_basis": "fixed_fee_per_tug_per_origin_destination_pair",
+      "special_services_hourly": 1001.88,
+      "requires_human_review_for": [],
+      "notes": "Commute surcharges apply when tug travels between port zones. Escorting service charged at 50% of standard rate"
+    },
+    "Huelva": {
+      "dimension_type": "GT",
+      "billing_basis": "per_service",
+      "calculation_pattern": "fixed_plus_variable",
+      "zone_determines_rate": true,
+      "zones": [
+        "general_traffic",
+        "ro_ro_ferry_container",
+        "large_lng_carriers",
+        "monobuoy"
+      ],
+      "vessel_type_determines_table": true,
+      "formula": "Rate = (VP * GT) + FP",
+      "tug_count_source": "not_applicable",
+      "delay_surcharge_logic": {
+        "trigger": "service_exceeds_reference_time_threshold",
+        "thresholds_mins": {
+          "general": 80,
+          "ro_ro_ferry_container": 70,
+          "lng": 150,
+          "monobuoy": 240
+        },
+        "penalty": "100pct_of_applicable_tariff_added"
+      },
+      "special_services_hourly": 1500.0,
+      "monobuoy_standby_hourly": 575.0,
+      "requires_human_review_for": [],
+      "data_quality_flag": "RESOLVED: Missing closing brace added to source JSON",
+      "notes": "Waiting time logic applies to specific zones based on reference time thresholds."
+    },
+    "Ceuta": {
+      "dimension_type": "GT",
+      "billing_basis": "per_service_per_tug",
+      "calculation_pattern": "bracket_lookup_with_formula_above_threshold",
+      "zone_determines_rate": true,
+      "zones": [
+        "zone_i_interior",
+        "bay_area"
+      ],
+      "bay_area_surcharge": 1.25,
+      "tariff_table_selection": {
+        "method": "accumulated_gt_previous_year",
+        "tables": [
+          "T-2",
+          "T-1",
+          "T0",
+          "T+1",
+          "T+2"
+        ],
+        "operational_rule": "accepted_on_face_value_from_invoice"
+      },
+      "formula_above_10000gt": "fixed_base + multiplier * [(GT/1000) - 10] * 100",
+      "tug_count_source": "invoice",
+      "ancillary_rates": [
+        "displacement_fee",
+        "hourly_rate",
+        "retention_rate"
+      ],
+      "requires_human_review_for": [],
+      "notes": "Tariff table taken on face value. No night/holiday surcharges permitted. Second tug displacement fee applies if second tug must travel from another port"
+    },
+    "Cadiz_Bay": {
+      "dimension_type": "GT",
+      "billing_basis": "per_service",
+      "calculation_pattern": "fixed_plus_variable",
+      "zone_determines_rate": true,
+      "zones": [
+        "cadiz_dock",
+        "other_docks_excl_santa_maria",
+        "puerto_de_santa_maria",
+        "industrial_navantia_dragados"
+      ],
+      "formula": "Rate = (VP * GT) + FP",
+      "tug_count_source": "not_applicable",
+      "standard_duration_mins": {
+        "general_docks": 120,
+        "navantia_facilities": 180
+      },
+      "shifting_logic": {
+        "same_dock": "single_service_charge",
+        "different_berths_same_dock": "100pct_unberth_plus_50pct_berth",
+        "different_docks": "100pct_unberth_plus_100pct_berth"
+      },
+      "special_services_hourly": 1004.0,
+      "cancellation_logic": {
+        "tugs_present": "50pct_of_rate",
+        "advance_notice": "25pct_of_rate"
+      },
+      "requires_human_review_for": [],
+      "notes": "Towing outside navigation channel line adds 25% surcharge. Zona Franca adds 25% (not applicable in Puerto de Santa María)"
+    },
+    "Valencia": {
+      "dimension_type": "GT",
+      "billing_basis": "per_service",
+      "calculation_pattern": "fixed_plus_variable",
+      "zone_determines_rate": false,
+      "port_locations": [
+        "Valencia",
+        "Sagunto",
+        "Gandia"
+      ],
+      "vessel_type_determines_table": true,
+      "tables": [
+        "general_tariffs",
+        "gas_carrier_tariffs"
+      ],
+      "formula": "Rate = IF + (IV * GT)",
+      "tug_count_source": "not_applicable",
+      "special_services_hourly": 1115.09,
+      "requires_human_review_for": [],
+      "notes": "Gas carriers have separate rate table. Same tariff applies across all three port locations"
+    },
+    "Las_Palmas": {
+      "dimension_type": "GT",
+      "billing_basis": "per_service",
+      "calculation_pattern": "fixed_plus_variable",
+      "port_locations": [
+        "Las_Palmas",
+        "Arrecife",
+        "Puerto_del_Rosario"
+      ],
+      "zone_determines_rate": false,
+      "formula": "Rate = Fixed + (Variable * GT)",
+      "tug_count_source": "invoice",
+      "standard_duration_mins": 60,
+      "overtime_handler": {
+        "standard_tug": "1560.89_per_hour_or_fraction",
+        "small_tug": "383.38_per_hour_or_fraction",
+        "small_tug_criteria": "length_under_20m_and_draft_3m_or_less",
+        "tug_spec_source": "invoice_face_value_unless_SOF_contradicts"
+      },
+      "requires_human_review_for": [],
+      "notes": "Overtime rate is a fixed hourly amount, not a percentage of base rate — requires separate handler. Small tug surcharge also applies as additional fixed fee per hour"
+    },
+    "Algeciras": {
+      "dimension_type": "GT",
+      "billing_basis": "per_service",
+      "calculation_pattern": "fixed_plus_variable",
+      "zone_determines_rate": true,
+      "zones": [
+        "general_zone",
+        "industrial_zones_ABC"
+      ],
+      "formula": "Total Charge = Fixed_Rate + (Variable_Rate_per_GT * Vessel_GT)",
+      "rates": {
+        "general": {
+          "fixed_rate_eur": 320.0,
+          "variable_rate_per_gt_eur": 0.0997
+        },
+        "specialized_zones_ABC": {
+          "fixed_rate_eur": 408.0,
+          "variable_rate_per_gt_eur": 0.1269
+        }
+      },
+      "tug_count_source": "not_applicable",
+      "surcharge_multipliers": {
+        "dead_ship": 1.25,
+        "dry_dock_zone_C": 1.25,
+        "shifting": 1.3
+      },
+      "waiting_time": {
+        "grace_period_mins": 30,
+        "billing_logic": "first_hour_in_full_then_30min_increments",
+        "hourly_standby_rate_eur": 289.75
+      },
+      "availability_security_services": {
+        "rate_eur_per_hour": 399.38,
+        "billing_logic": "first_hour_in_full_then_30min_increments"
+      },
+      "provider_delay_bonuses": {
+        "description": "Discounts applied when delay is attributable to the service provider",
+        "tiers": [
+          {
+            "delay_over_mins": 30,
+            "discount_pct": 10,
+            "multiplier": 0.9
+          },
+          {
+            "delay_over_mins": 60,
+            "discount_pct": 20,
+            "multiplier": 0.8
+          },
+          {
+            "delay_over_mins": 120,
+            "discount_pct": 50,
+            "multiplier": 0.5
+          }
+        ],
+        "exclusions": [
+          "force_majeure",
+          "circumstances_outside_provider_control"
+        ],
+        "reporting_requirement": "Port Authority must be notified when provider delay bonuses are applied"
+      },
+      "requires_human_review_for": [],
+      "notes": "Dead ship surcharge 25% (1.25x) — lower than most other ports. Provider delay generates a discount (bonus), not a surcharge. Waiting time has its own hourly standby rate of 289.75 EUR — separate from the availability/security rate of 399.38 EUR"
+    }
+  },
+  "calculation_pattern_handlers_required": [
+    "bracket_lookup",
+    "fixed_plus_variable",
+    "hp_hourly",
+    "hourly_with_minimum",
+    "per_service_tug_count_specific",
+    "bracket_lookup_with_formula_above_threshold"
+  ],
+  "dimension_types_in_use": {
+    "LOA_meters": [
+      "Ghent",
+      "Le_Havre",
+      "Antwerp",
+      "Rotterdam",
+      "Dordrecht_Moerdijk"
+    ],
+    "GT": [
+      "Santo_Domingo_Haina",
+      "Rostock",
+      "Brake",
+      "Castellon",
+      "Tenerife_La_Palma",
+      "Huelva",
+      "Ceuta",
+      "Cadiz_Bay",
+      "Valencia",
+      "Las_Palmas",
+      "Algeciras"
+    ],
+    "GRT": [
+      "Altamira",
+      "Coatzacoalcos",
+      "Ensenada",
+      "Guaymas",
+      "Manzanillo",
+      "Mazatlan",
+      "Salina_Cruz",
+      "Tampico"
+    ],
+    "none": [
+      "Panama"
+    ]
+  },
+  "ports_with_open_doubts": {
+    "Le_Havre": "Zone 7 excess billing — does 30% waiting time surcharge stack on overtime?",
+    "Dordrecht_Moerdijk": "Column 9 undefined — fog surcharge exclusion scope unclear",
+    "Rostock": "Ice breaking base tariff — applies to Tariff A, B, or both?"
+  },
+  "ports_with_data_quality_flags": {
+    "Le_Havre": "TABLE_C LOA 403-410.99m rate confirmed as 11917.92 EUR — source JSON had 11191.792 which was a data entry error. Update source JSON accordingly.",
+    "Huelva": "RESOLVED: Missing closing brace added to source JSON"
+  }
+}

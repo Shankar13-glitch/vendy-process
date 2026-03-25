@@ -1,0 +1,40 @@
+{
+  "invoice_reference": "0480037456",
+  "purchase_order": "PO-SCM2504259",
+  "vendor": "Boluda Towage Spain",
+  "port": "Las_Palmas",
+  "vessel_name": "STI PIMLICO",
+  "vessel_gt": "24.230",
+  "vessel_imo": "9686871",
+  "vessel_flag": "Islas Marshall",
+  "invoice_date": "2025-12-29",
+  "service_date": "2025-12-28",
+  "currency": "EUR",
+  "line_items": [
+    {
+      "service_type": "Berth",
+      "description": "Atraque / Berth",
+      "date": "2025-12-28",
+      "gt": "24.230",
+      "tug_count": 2,
+      "tugs": [
+        {"name": "V.B. ADRIATICO", "start": "02:31", "end": "03:33"},
+        {"name": "VB TAMARAN",    "start": "02:33", "end": "03:34"}
+      ],
+      "amount": 3422.26
+    },
+    {
+      "service_type": "Unberth",
+      "description": "Desatraque / Unberth",
+      "date": "2025-12-29",
+      "gt": "24.230",
+      "tug_count": 2,
+      "tugs": [
+        {"name": "V.B. ADRIATICO", "start": "13:07", "end": "13:47"},
+        {"name": "VB BANDAMA",     "start": "13:07", "end": "13:38"}
+      ],
+      "amount": 3422.26
+    }
+  ],
+  "total_amount": 6844.52
+}

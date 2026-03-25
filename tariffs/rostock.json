@@ -1,0 +1,167 @@
+{
+  "port_metadata": {
+    "port_name": "Rostock",
+    "effective_date": "2026-01-01",
+    "currency": "EUR",
+    "vessel_dimension_unit": "Gross Tonnage (GT)",
+    "vessel_dimension_source": "Ships' tonnage certificate"
+  },
+  "geographic_sectors": {
+    "sector_1": {
+      "name": "Standard Port Areas",
+      "terminals": [
+        "Warnemünde",
+        "Industriegebiet Groß-Klein",
+        "Marine Stützpunkt Hohe Düne",
+        "Seehafen Pier I-West (Warnow-Pier)",
+        "Hafenbecken A, B, C",
+        "Ölhafen",
+        "Chemiehafen"
+      ]
+    },
+    "sector_2": {
+      "name": "Fishery Port and Stadthafen Rostock",
+      "terminals": [
+        "Fischereihafen",
+        "Stadthafen"
+      ],
+      "surcharge": "25% on Tariff A and Tariff B rates",
+      "multiplier": 1.25
+    }
+  },
+  "tariff_a_base_rates": {
+    "description": "Per move and per tug for vessels with operational main engine in Sector 1.",
+    "brackets": [
+      {
+        "max_gt": 5000,
+        "rate": 1442
+      },
+      {
+        "min_gt": 5001,
+        "max_gt": 10000,
+        "rate": 1805
+      },
+      {
+        "min_gt": 10001,
+        "max_gt": 15000,
+        "rate": 2181
+      },
+      {
+        "min_gt": 15001,
+        "max_gt": 20000,
+        "rate": 2633
+      },
+      {
+        "min_gt": 20001,
+        "max_gt": 25000,
+        "rate": 3085
+      },
+      {
+        "min_gt": 25001,
+        "max_gt": 30000,
+        "rate": 3987
+      },
+      {
+        "min_gt": 30001,
+        "max_gt": 35000,
+        "rate": 4438
+      },
+      {
+        "min_gt": 35001,
+        "max_gt": 40000,
+        "rate": 5039
+      },
+      {
+        "min_gt": 40001,
+        "max_gt": 45000,
+        "rate": 5491
+      },
+      {
+        "min_gt": 45001,
+        "max_gt": 50000,
+        "rate": 6093
+      }
+    ],
+    "oversize_logic": {
+      "gt_threshold": 50001,
+      "increment_unit_gt": 10000,
+      "increment_rate_eur": 571
+    }
+  },
+  "tariff_b_hourly_logic": {
+    "hourly_working_rate_standard": 1150,
+    "hourly_working_rate_strong_winds": 1610,
+    "wind_trigger_bft": 6,
+    "billing_increments": "First 60 minutes or part thereof counts as full hour. Thereafter, time is charged in 30-minute periods.",
+    "service_categories": {
+      "waiting_time": {
+        "applicable_tariff": "Tariff B Hourly Rate (€ 1,150)",
+        "logic": "First half hour is Free of Charge. If delay exceeds 30 minutes, the first hour is charged in full, followed by half-hourly charges of the Hourly rate.",
+        "triggers": [
+          "Assistance not commenced within 30 minutes of firm order",
+          "Normal assistance interrupted longer than 30 minutes",
+          "Trip in vain: tug not released within 30 minutes"
+        ]
+      },
+      "holding_pushing_berth": {
+        "applicable_tariff": "Tariff B Hourly Rate (€ 1,150)",
+        "logic": "Minimum 1 hour charge, thereafter charging per 30 minutes or part thereof.",
+        "trigger": "Occurs as soon as normal assistance is interrupted and vessel must be held/pushed in position (e.g., at locks, rivers, or bridges)."
+      },
+      "shifting": {
+        "applicable_tariff": "Tariff B Hourly Rate (€ 1,150)",
+        "logic": "Charged per Tug with a minimum of 1 hour, thereafter per 30 minutes or part thereof."
+      },
+      "safety_standby": {
+        "applicable_tariff": "Hourly Stand-by rate (Standard Hourly Rate € 1,150)",
+        "logic": "Counts from departure from station until return to station."
+      }
+    }
+  },
+  "surcharges_and_multipliers": {
+    "dead_ship": {
+      "description": "Vessels without propulsion or steering.",
+      "surcharge": "50% on Tariff A",
+      "multiplier": 1.5
+    },
+    "wismar_port": {
+      "description": "Assistance in the port of Wismar.",
+      "fixed_fee_eur": 4.25,
+      "logic": "Levied on top of Tariff A and B rates."
+    },
+    "evening_weekend_holiday": {
+      "description": "Outside Mon-Fri 07:00-17:00 or on holidays.",
+      "surcharge": "25% on Tariff A and B",
+      "multiplier": 1.25,
+      "condition": "Applicable if at least 50% of the services are provided outside normal hours."
+    },
+    "late_order": {
+      "description": "Orders made with less than 4 hours notice.",
+      "surcharge": "100% of the towage rate",
+      "multiplier": 2.0
+    },
+    "ice_surcharge": {
+      "description": "Assistance in broken ice.",
+      "surcharge": "25% on Tariff A and B",
+      "multiplier": 1.25
+    },
+    "ice_breaking": {
+      "description": "Ice breaking or ice breaking assistance.",
+      "surcharge": "50% on Tariff A and B",
+      "multiplier": 1.5
+    },
+    "mobilization_in_vain": {
+      "description": "Cancellation without 1-hour notice or tug dismissed unused.",
+      "surcharge": "50% of Tariff A",
+      "multiplier": 0.5
+    },
+    "fuel_surcharge": {
+      "threshold_price_eur_per_cbm": 160,
+      "increment_ratio": "1% surcharge for every 10% price increase above threshold",
+      "review_period": "Every 2 weeks"
+    }
+  },
+  "exclusions": {
+    "emergency_response": "Tariffs do not apply to Emergency Assistance, Salvage, or Vessels broken loose from mooring; separate agreements required."
+  }
+}

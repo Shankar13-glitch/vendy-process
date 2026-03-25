@@ -1,0 +1,126 @@
+{
+  "currency": "USD",
+  "port_metadata": {
+    "port_name": "Mazatlán",
+    "country": "Mexico",
+    "authority": "Secretariat of the Navy (SEMAR)",
+    "provider": "Compañía Marítima del Pacífico, S.A. de C.V.",
+    "effective_date": "2025-04-20",
+    "currency": "USD",
+    "vessel_dimension_unit": "Gross Register Tonnage (GRT / TRB)",
+    "vessel_dimension_source": "Vessel Tonnage Certificate",
+    "power_unit": "Horsepower (H.P.)",
+    "power_source": "Certificate issued by competent authority"
+  },
+  "geographic_scope_and_terminals": {
+    "primary_operating_area": "Port of Mazatlán, Sinaloa",
+    "limits": "Jurisdictional waters of the Port of Mazatlán",
+    "terminals": [
+      "All terminals within the jurisdictional waters and the National Port System Administration (ASIPONA) Mazatlán area"
+    ]
+  },
+  "billing_logic_definitions": {
+    "service_description": "Includes towage assistance for Arrivals (Entradas), Departures (Salidas), and Anchoring (Fondeo).",
+    "billing_basis": "Rate per H.P. / Hour for each tug employed.",
+    "time_measurement": {
+      "movement_time_definition": "Legally defined as 20 minutes before the time indicated in the service request",
+      "start_trigger": "Starts when lines are exchanged or the tug is ready at the agreed location",
+      "end_trigger": "Ends when lines are cast off or as indicated by the pilot"
+    },
+    "duration_logic": {
+      "standard_included_duration_hrs": 1.0,
+      "minimum_charge": "Amount equivalent to one hour of service",
+      "additional_time_increment_mins": 15,
+      "rounding": "Any fraction of 15 minutes is charged as a full 15-minute period",
+      "overtime_surcharge_basis": "25% of the basic quota per 15-minute increment"
+    }
+  },
+  "tariff_matrix_per_hp_hour": [
+    {
+      "trb_range": "0 to 5,000",
+      "rate_per_hp_hour_usd": 10.5
+    },
+    {
+      "trb_range": "5,001 to 10,000",
+      "rate_per_hp_hour_usd": 12.0
+    },
+    {
+      "trb_range": "10,001 to 25,000",
+      "rate_per_hp_hour_usd": 15.07
+    },
+    {
+      "trb_range": "Over 25,001",
+      "rate_per_hp_hour_usd": 16.53
+    }
+  ],
+  "surcharges_discounts_and_multipliers": [
+    {
+      "name": "Bow Thruster Discount",
+      "vessel_equipment_specific": "Vessels with an operational Bow Thruster",
+      "condition": "Vessel effectively uses only one tug during maneuvers",
+      "surcharge_pct": -10.0,
+      "multiplier": 0.9,
+      "note": "If two or more tugs are used, the full tariff applies without discount"
+    },
+    {
+      "name": "Small Vessel Discount",
+      "vessel_size_specific": "Vessels under 3,000 TRB",
+      "condition": "Service requested for vessels in this size bracket",
+      "surcharge_pct": -30.0,
+      "multiplier": 0.7,
+      "logic": "The applicable charge is 70% of the total maneuver amount"
+    },
+    {
+      "name": "Mechanical Deficiency / Failure",
+      "vessel_condition_specific": "Vessels with machine or steering deficiencies",
+      "condition": "Deficiencies or failures present during arrival or departure service",
+      "surcharge_pct": 20.0,
+      "multiplier": 1.2,
+      "applied_to": "Total service quota"
+    },
+    {
+      "name": "Additional Time / Overtime",
+      "condition": "Service duration exceeds 1 hour",
+      "surcharge_pct": 25.0,
+      "multiplier": 0.25,
+      "basis": "Per 15 minutes or fraction thereof",
+      "applied_to": "Basic quota"
+    },
+    {
+      "name": "Late Cancellation",
+      "condition": "Notice given < 1 hour before tug movement (Requested Time - 20 mins)",
+      "surcharge_pct": 25.0,
+      "multiplier": 0.25,
+      "applied_to": "Basic quota"
+    },
+    {
+      "name": "Cancellation After Movement",
+      "condition": "User desists from service once tugs have started moving",
+      "surcharge_pct": 75.0,
+      "multiplier": 0.75,
+      "applied_to": "Basic quota"
+    },
+    {
+      "name": "Waiting / Standby Time",
+      "condition": "Tugs must wait due to causes imputable to the user",
+      "surcharge_pct": 25.0,
+      "multiplier": 0.25,
+      "basis": "Per hour or fraction of wait time, starting from the time indicated in request"
+    }
+  ],
+  "vessel_specific_exclusions": [
+    {
+      "vessel_type": "Tourist Cruise Ships",
+      "note": "Excluded from this tariff; billed under separate office DGP.-1285/2025 (April 4, 2024)"
+    },
+    {
+      "vessel_type": "Salvage and Emergency Services",
+      "note": "Salvage, firefighting, and special services are subject to negotiation based on international maritime customs"
+    }
+  ],
+  "administrative_subtext": {
+    "notice_period": "Service must be requested in writing at least 3 hours in advance during business hours",
+    "payment_requirement": "Users must cover the estimated service amount at the time of request; final adjustment made upon invoice",
+    "resolution_authority": "General Directorate of Ports of the Secretariat of the Navy (SEMAR)"
+  }
+}

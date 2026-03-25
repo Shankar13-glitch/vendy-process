@@ -1,0 +1,48 @@
+{
+  "invoice_reference": "971125004346",
+  "purchase_order": "PO-SCM2501285",
+  "vendor": "Harbour Towage Rostock",
+  "port": "Rostock",
+  "vessel_name": "STI FULHAM",
+  "vessel_loa": "184",
+  "vessel_gt": "24,230",
+  "vessel_imo": "9688374",
+  "invoice_date": "2025-04-23",
+  "service_date": "2025-04-17",
+  "currency": "EUR",
+  "notes": [
+    "Service date 17-Apr-2025 — invoice uses 2025 tariff rates; JSON has 2026 rates — MISMATCH expected ~-5.7%",
+    "Sector 1 standard area (Olhafen) — no sector surcharge applies",
+    "Discount 15%: 5,820 x 15% = 873.00 — contractual, pending contract receipt",
+    "Bunker Surcharge 14%: 5,820 x 14% = 814.80 — variable, accepted on face value"
+  ],
+  "line_items": [
+    {
+      "service_type": "Inward",
+      "description": "Arrival from Sea to LP4 — Towage Rostock (Sector 1)",
+      "date": "2025-04-17",
+      "gt": "24,230",
+      "zone": "sector_1_standard",
+      "tug_count": 2,
+      "amount": 5820.00,
+      "note": "Gross base tug charge: 2 tugs x 2,910 = 5,820 (2025 tariff)"
+    },
+    {
+      "service_type": "Discount",
+      "description": "Discount 15%",
+      "date": "2025-04-17",
+      "amount": -873.00,
+      "is_adjustment": true,
+      "note": "Contractual discount — 5,820 x 15% = 873.00. Pending contract verification."
+    },
+    {
+      "service_type": "Bunker Surcharge",
+      "description": "Bunker Surcharge 14%",
+      "date": "2025-04-17",
+      "amount": 814.80,
+      "is_adjustment": true,
+      "note": "Variable bunker surcharge — 5,820 x 14% = 814.80. Accepted on face value."
+    }
+  ],
+  "total_amount": 5761.80
+}

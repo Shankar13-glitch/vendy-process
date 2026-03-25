@@ -1,0 +1,30 @@
+{
+  "vessel": {
+    "name": "CONTI BENGUELA",
+    "imo": "9391373",
+    "gt": 23403
+  },
+  "voyage": "CBENG-2601",
+  "port": "Ceuta",
+  "sof_note": "WARNING: cueta_test_sof.pdf is the STS SOF for SEA CIRRUS alongside CONTI BENGUELA (21.01.2026). It does NOT contain port towage events for CONTI BENGUELA's berth (18.01) or unberth (20.01). Dates below are from invoice face value.",
+  "events": [
+    {
+      "type": "Berth",
+      "service_type": "Berth",
+      "date": "2026-01-18",
+      "tug_count": 2,
+      "tugs": ["VB TECKEL", "VB ANDALUCIA (C)"],
+      "zone": "bay_area",
+      "note": "Berthed 18.01.2026 -- 2 tugs. Zone: Bay area (Recargo salida fuera puerto = 25% surcharge applies). VB ANDALUCIA (C) mobilised from outside Ceuta."
+    },
+    {
+      "type": "Unberth",
+      "service_type": "Unberth",
+      "date": "2026-01-20",
+      "tug_count": 2,
+      "tugs": ["VB TECKEL", "VB ANDALUCIA (C)"],
+      "zone": "zone_i_interior",
+      "note": "Unberthed 20.01.2026 -- 2 tugs. Zone: Interior (no bay surcharge). VB ANDALUCIA returned to home port."
+    }
+  ]
+}

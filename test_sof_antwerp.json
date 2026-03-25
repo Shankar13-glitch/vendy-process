@@ -1,0 +1,62 @@
+{
+  "vessel": "Wonder Mimosa",
+  "voyage": "WMIM 060",
+  "port": "Antwerp, BE",
+  "events": [
+    {
+      "event": "EOSP",
+      "date": "2026-01-18",
+      "time": "02:30"
+    },
+    {
+      "event": "NOR Tendered",
+      "date": "2026-01-18",
+      "time": "02:48"
+    },
+    {
+      "event": "Tugs Made Fast",
+      "date": "2026-01-18",
+      "time": "09:30",
+      "tug_count": 2,
+      "note": "Pre-lock section (Zandvliet approach)"
+    },
+    {
+      "event": "In the Lock",
+      "date": "2026-01-18",
+      "time": "10:12"
+    },
+    {
+      "event": "Tugs Away",
+      "date": "2026-01-18",
+      "time": "10:12",
+      "note": "Tugs released at lock entry"
+    },
+    {
+      "event": "Tugs Made Fast",
+      "date": "2026-01-18",
+      "time": "10:48",
+      "tug_count": 2,
+      "note": "Post-lock section (Deurganckdok to berth)"
+    },
+    {
+      "event": "Out the Lock",
+      "date": "2026-01-18",
+      "time": "11:00"
+    },
+    {
+      "event": "First Line Ashore",
+      "date": "2026-01-18",
+      "time": "12:06"
+    },
+    {
+      "event": "All Fast / Tugs Away",
+      "date": "2026-01-18",
+      "time": "12:30"
+    },
+    {
+      "event": "Pilot Off",
+      "date": "2026-01-18",
+      "time": "12:36"
+    }
+  ]
+}

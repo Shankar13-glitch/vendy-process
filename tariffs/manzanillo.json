@@ -1,0 +1,139 @@
+{
+  "port_metadata": {
+    "port_name": "Manzanillo",
+    "country": "Mexico",
+    "authority": "Secretariat of the Navy (SEMAR)",
+    "provider": "Compañía Marítima Mexicana, S.A. de C.V.",
+    "effective_date": "2025-04-20",
+    "currency": "USD",
+    "vessel_dimension_unit": "Gross Register Tonnage (GRT / TRB)",
+    "vessel_dimension_source": "Vessel Tonnage Certificate"
+  },
+  "geographic_scope_and_terminals": {
+    "primary_operating_area": "Port of Manzanillo, Colima",
+    "limits": "Jurisdictional waters of the Port of Manzanillo",
+    "terminals": [
+      "All terminals within the jurisdictional waters of the Port of Manzanillo"
+    ]
+  },
+  "billing_logic_definitions": {
+    "service_description": "Includes towage assistance for Arrivals (Entrada), Departures (Salida), or Movements (Movimiento) for self-propelled vessels.",
+    "time_measurement": {
+      "movement_time_definition": "Legally defined as 20 minutes before the time indicated in the service request",
+      "start_trigger": "Starts when lines are exchanged or the tug is ready at the agreed location",
+      "end_trigger": "Ends when lines are cast off or as indicated by the pilot"
+    },
+    "duration_logic": {
+      "standard_included_duration_hrs": 1.0,
+      "additional_time_increment_mins": 15,
+      "rounding": "Any fraction of 15 minutes is charged as a full 15-minute period",
+      "overtime_surcharge_basis": "25% of the basic maneuver quota per 15-minute increment"
+    },
+    "technical_criteria_reference": "Rates apply per maneuver based on Technical Criteria for the Provision of Port Towage Services issued by SEMAR."
+  },
+  "tariff_matrix_per_maneuver": [
+    {
+      "grt_range": "Under 3,000 Tons",
+      "basic_quota_usd": 29245.0
+    },
+    {
+      "grt_range": "3,001 to 5,000 Tons",
+      "basic_quota_usd": 38296.0
+    },
+    {
+      "grt_range": "5,001 to 7,500 Tons",
+      "basic_quota_usd": 49608.0
+    },
+    {
+      "grt_range": "7,501 to 9,000 Tons",
+      "basic_quota_usd": 58665.0
+    },
+    {
+      "grt_range": "9,001 to 11,000 Tons",
+      "basic_quota_usd": 79026.0
+    },
+    {
+      "grt_range": "11,001 to 13,000 Tons",
+      "basic_quota_usd": 81295.0
+    },
+    {
+      "grt_range": "13,001 to 15,000 Tons",
+      "basic_quota_usd": 83556.0
+    },
+    {
+      "grt_range": "15,001 to 17,000 Tons",
+      "basic_quota_usd": 85816.0
+    },
+    {
+      "grt_range": "17,001 to 20,000 Tons",
+      "basic_quota_usd": 88083.0
+    },
+    {
+      "grt_range": "Over 20,000 Tons",
+      "basic_quota_usd": 88607.0
+    }
+  ],
+  "surcharges_discounts_and_multipliers": [
+    {
+      "name": "Bow Thruster Discount",
+      "vessel_condition_specific": "Vessels over 15,000 GRT using an operational Bow Thruster and effectively employing only one tug",
+      "surcharge_pct": -10.0,
+      "multiplier": 0.9,
+      "note": "If two or more tugs are used, the full tariff applies without discount"
+    },
+    {
+      "name": "Small Vessel Discount",
+      "condition": "Vessels less than 3,000 GRT",
+      "surcharge_pct": -30.0,
+      "multiplier": 0.7,
+      "logic": "The applicable charge is 70% of the total maneuver amount"
+    },
+    {
+      "name": "Third Tug Request",
+      "condition": "Express request for a third tug by user or authority",
+      "surcharge_pct": 50.0,
+      "multiplier": 0.5,
+      "logic": "Charged at 50% of the basic quota corresponding to the vessel's GRT range"
+    },
+    {
+      "name": "Additional Time / Overtime",
+      "condition": "Service duration exceeds 1 hour",
+      "surcharge_pct": 25.0,
+      "multiplier": 0.25,
+      "basis": "Per 15 minutes or fraction thereof",
+      "applied_to": "Basic maneuver quota"
+    },
+    {
+      "name": "Late Cancellation",
+      "condition": "Notice given < 1 hour before tug movement (Requested Time minus 20 mins)",
+      "surcharge_pct": 25.0,
+      "multiplier": 0.25,
+      "applied_to": "Relevant maneuver quota"
+    },
+    {
+      "name": "Cancellation After Movement",
+      "condition": "User desists from service once tugs have started moving",
+      "surcharge_pct": 75.0,
+      "multiplier": 0.75,
+      "applied_to": "Relevant maneuver quota"
+    },
+    {
+      "name": "Waiting / Standby Time",
+      "condition": "Tugs must wait due to causes imputable to the user",
+      "surcharge_pct": 25.0,
+      "multiplier": 0.25,
+      "basis": "Per hour or fraction of wait time, starting from the time indicated in request"
+    }
+  ],
+  "exclusions_and_special_services": [
+    {
+      "service_type": "Salvage, Firefighting, and Emergency Assistance",
+      "note": "Not subject to fixed rates; subject to negotiation based on international maritime customs"
+    }
+  ],
+  "administrative_subtext": {
+    "notice_period": "Service must be requested in writing at least 3 hours in advance during provider office hours",
+    "payment_requirement": "Users must cover the estimated maneuver amount at the time of request; final adjustment made upon invoice presentation",
+    "resolution_authority": "General Directorate of Ports of the Secretariat of the Navy (SEMAR)"
+  }
+}

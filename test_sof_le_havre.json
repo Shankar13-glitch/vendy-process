@@ -1,0 +1,42 @@
+{
+  "vessel": {
+    "name": "STI PIMLICO",
+    "imo": "9686871",
+    "gt": 24230,
+    "loa": 184.0,
+    "breadth": 27.44,
+    "draught": 11.91,
+    "flag": "Malta"
+  },
+  "voyage": "142",
+  "port": "LE HAVRE",
+  "berth": "CIM 6",
+  "inward_from": "DONGES",
+  "outward_to": "ANTWERPEN",
+  "events": [
+    {
+      "type": "Berth",
+      "service_type": "Berth",
+      "date": "2025-10-07",
+      "pilot_on_board_time": "21:30",
+      "first_line_ashore_time": "22:40",
+      "all_fast_time": "23:30",
+      "tugs_away_time": "23:30",
+      "tug_count": 2,
+      "berth_location": "CIM 6",
+      "duration_mins": 50,
+      "note": "Tugs: 2. Pilot on board 21:30, First line ashore 22:40, All fast 23:30 = 50 min active tug time. Standard ZONE_2 allowance 2hrs -> no overtime."
+    },
+    {
+      "type": "Unberth",
+      "service_type": "Unberth",
+      "date": "2025-10-09",
+      "tugs_alongside_time": "20:30",
+      "tugs_away_time": "21:00",
+      "tug_count": 2,
+      "berth_location": "CIM 6",
+      "duration_mins": 30,
+      "note": "Tugs: 2. Sailing pilot ordered 20:30. Departure from CIM 6. Duration approx 30 min -> no overtime."
+    }
+  ]
+}

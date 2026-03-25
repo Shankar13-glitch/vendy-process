@@ -1,0 +1,250 @@
+{
+  "port_metadata": {
+    "port_name": "Ceuta",
+    "country": "Spain",
+    "authority": "Port Authority of Ceuta",
+    "currency": "EUR (€)",
+    "vessel_dimension_unit": "Gross Tonnage (GT)",
+    "vessel_dimension_source": "London Convention 1969",
+    "billing_basis": "Rates are applied per service and per tugboat utilized."
+  },
+  "operational_logic": {
+    "tariff_selection_criteria": "The applicable tariff table is determined by the total accumulated GT of all vessels served in the port during the previous calendar year.",
+    "standard_operating_table": "Tariff T0 is applied during the first 12 months of the regulations' validity and until the first 15th of January following that period.",
+    "extraordinary_revision_triggers": {
+      "upper_limit_gt": 5577845,
+      "lower_limit_gt": 4343800
+    }
+  },
+  "tariff_tables": [
+    {
+      "table_id": "T+2",
+      "accumulated_gt_range": "5,309,073 to 5,577,845",
+      "fixed_rates": [
+        {
+          "gt_range": "Up to 2,000",
+          "rate_per_service": 278.04
+        },
+        {
+          "gt_range": "2,001 to 4,500",
+          "rate_per_service": 556.09
+        },
+        {
+          "gt_range": "4,501 to 7,000",
+          "rate_per_service": 834.13
+        },
+        {
+          "gt_range": "7,001 to 10,000",
+          "rate_per_service": 1112.18
+        }
+      ],
+      "formula_over_10000_gt": "1112.18 + 1.0746 * [(GT / 1000) - 10] * 100",
+      "ancillary_rates": {
+        "displacement_fee": 1766.3,
+        "hourly_rate": 373.91,
+        "retention_rate": 128.03
+      }
+    },
+    {
+      "table_id": "T+1",
+      "accumulated_gt_range": "5,053,251 to 5,309,072",
+      "fixed_rates": [
+        {
+          "gt_range": "Up to 2,000",
+          "rate_per_service": 285.84
+        },
+        {
+          "gt_range": "2,001 to 4,500",
+          "rate_per_service": 571.68
+        },
+        {
+          "gt_range": "4,501 to 7,000",
+          "rate_per_service": 857.53
+        },
+        {
+          "gt_range": "7,001 to 10,000",
+          "rate_per_service": 1143.38
+        }
+      ],
+      "formula_over_10000_gt": "1143.38 + 1.1047 * [(GT / 1000) - 10] * 100",
+      "ancillary_rates": {
+        "displacement_fee": 1815.84,
+        "hourly_rate": 384.4,
+        "retention_rate": 131.62
+      }
+    },
+    {
+      "table_id": "T0",
+      "accumulated_gt_range": "4,806,750 to 5,053,250",
+      "fixed_rates": [
+        {
+          "gt_range": "Up to 2,000",
+          "rate_per_service": 293.26
+        },
+        {
+          "gt_range": "2,001 to 4,500",
+          "rate_per_service": 586.53
+        },
+        {
+          "gt_range": "4,501 to 7,000",
+          "rate_per_service": 879.8
+        },
+        {
+          "gt_range": "7,001 to 10,000",
+          "rate_per_service": 1173.07
+        }
+      ],
+      "formula_over_10000_gt": "1173.07 + 1.1334 * [(GT / 1000) - 10] * 100",
+      "formula_note": "Simplified hand-drawn version: (0.11334 * GT) + 39.67",
+      "ancillary_rates": {
+        "displacement_fee": 1863.0,
+        "hourly_rate": 394.38,
+        "retention_rate": 135.04
+      }
+    },
+    {
+      "table_id": "T-1",
+      "accumulated_gt_range": "4,569,416 to 4,806,749",
+      "fixed_rates": [
+        {
+          "gt_range": "Up to 2,000",
+          "rate_per_service": 300.5
+        },
+        {
+          "gt_range": "2,001 to 4,500",
+          "rate_per_service": 601.01
+        },
+        {
+          "gt_range": "4,501 to 7,000",
+          "rate_per_service": 901.52
+        },
+        {
+          "gt_range": "7,001 to 10,000",
+          "rate_per_service": 1202.03
+        }
+      ],
+      "formula_over_10000_gt": "1202.03 + 1.1614 * [(GT / 1000) - 10] * 100",
+      "ancillary_rates": {
+        "displacement_fee": 1908.99,
+        "hourly_rate": 404.12,
+        "retention_rate": 138.37
+      }
+    },
+    {
+      "table_id": "T-2",
+      "accumulated_gt_range": "4,343,800 to 4,569,415",
+      "fixed_rates": [
+        {
+          "gt_range": "Up to 2,000",
+          "rate_per_service": 307.38
+        },
+        {
+          "gt_range": "2,001 to 4,500",
+          "rate_per_service": 614.78
+        },
+        {
+          "gt_range": "4,501 to 7,000",
+          "rate_per_service": 922.17
+        },
+        {
+          "gt_range": "7,001 to 10,000",
+          "rate_per_service": 1229.56
+        }
+      ],
+      "formula_over_10000_gt": "1229.56 + 1.1880 * [(GT / 1000) - 10] * 100",
+      "ancillary_rates": {
+        "displacement_fee": 1952.72,
+        "hourly_rate": 413.37,
+        "retention_rate": 141.54
+      }
+    }
+  ],
+  "surcharges_and_multipliers": [
+    {
+      "name": "Accompaniment Service",
+      "condition": "Tugboat provides accompaniment instead of active pushing/pulling",
+      "surcharge_pct": -20.0,
+      "multiplier": 0.8,
+      "applied_to": "Maximum tariff based on vessel GT"
+    },
+    {
+      "name": "Dead Ship",
+      "condition": "Vessels without propulsion engine or steering capability",
+      "vessel_condition": "Non-maneuverable",
+      "surcharge_pct": 50.0,
+      "multiplier": 1.5,
+      "applied_to": "Corresponding basic tariff"
+    },
+    {
+      "name": "Dry Dock / Slipway Maneuver",
+      "condition": "Entry or exit from dry dock or varadero",
+      "surcharge_pct": 50.0,
+      "multiplier": 1.5,
+      "applied_to": "Corresponding basic tariff"
+    },
+    {
+      "name": "Interior Movement",
+      "condition": "Complete interior movement service within the port",
+      "surcharge_pct": 50.0,
+      "multiplier": 1.5,
+      "applied_to": "Corresponding basic tariff"
+    },
+    {
+      "name": "Bay Distance Surcharge",
+      "geographic_application": "Services starting or ending in the 'Bay' (from port mouth to line Punta Blanca - Santa Catalina)",
+      "surcharge_pct": 25.0,
+      "multiplier": 1.25,
+      "applied_to": "Corresponding basic tariff",
+      "exclusion": "Vessels entering exclusively for fuel supply in Zone I are exempt"
+    },
+    {
+      "name": "Demurrage / Delay Fee",
+      "condition": "Maneuver delayed by > 30 minutes due to causes not attributable to the provider",
+      "surcharge_pct": 25.0,
+      "multiplier": 1.25,
+      "applied_to": "Total resulting tariff amount"
+    },
+    {
+      "name": "Service Cancellation",
+      "condition": "Services cancelled before they begin",
+      "surcharge_pct": -50.0,
+      "multiplier": 0.5,
+      "applied_to": "Corresponding basic tariff"
+    },
+    {
+      "name": "Second Tugboat Displacement",
+      "condition": "Request for a second tugboat that is not permanently based in Ceuta and must travel from another port",
+      "fixed_fee_eur": 1863.0,
+      "multiplier": 1.0,
+      "note": "Based on T0 displacement fee"
+    }
+  ],
+  "reductions": [
+    {
+      "name": "Provider Delay Bonus",
+      "condition": "Maneuver delayed by > 30 minutes due to causes attributable to the service provider",
+      "surcharge_pct": -25.0,
+      "multiplier": 0.75,
+      "applied_to": "Corresponding basic tariff"
+    }
+  ],
+  "geographic_zones_and_terminals": {
+    "zone_i": {
+      "name": "Interior Port",
+      "description": "Area within the port mouth"
+    },
+    "bay_area": {
+      "name": "The Bay",
+      "geographic_limits": "Defined from the port mouth to the line connecting Punta Blanca and Santa Catalina"
+    }
+  },
+  "administrative_rules": {
+    "prohibited_charges": [
+      "Night surcharges",
+      "Holiday surcharges",
+      "Any other charge not explicitly listed in these maximum tariffs"
+    ],
+    "retention_billing": "Billing for tugboat retention due to service interruption starts once the service has already begun.",
+    "hourly_billing": "Hourly rates and retention rates are billed per hour or fraction thereof."
+  }
+}

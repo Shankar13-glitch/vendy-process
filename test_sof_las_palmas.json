@@ -1,0 +1,79 @@
+{
+  "vessel": "STI PIMLICO",
+  "voyage": "TICO 147",
+  "port": "Las Palmas",
+  "events": [
+    {
+      "event": "EOSP / Free Pratique Granted",
+      "date": "2025-12-28",
+      "time": "01:00"
+    },
+    {
+      "event": "NOR Tendered",
+      "date": "2025-12-28",
+      "time": "02:12"
+    },
+    {
+      "event": "Pilot On Board",
+      "date": "2025-12-28",
+      "time": "02:15"
+    },
+    {
+      "event": "Tugs Alongside / Made Fast",
+      "date": "2025-12-28",
+      "time": "02:38",
+      "tug_count": 2
+    },
+    {
+      "event": "First Line Ashore",
+      "date": "2025-12-28",
+      "time": "03:00"
+    },
+    {
+      "event": "All Fast / Tugs Away / Pilot Off",
+      "date": "2025-12-28",
+      "time": "03:36"
+    },
+    {
+      "event": "Commenced Discharging",
+      "date": "2025-12-28",
+      "time": "07:48"
+    },
+    {
+      "event": "Completed Discharging",
+      "date": "2025-12-29",
+      "time": "10:18"
+    },
+    {
+      "event": "Pilot On Board",
+      "date": "2025-12-29",
+      "time": "13:00"
+    },
+    {
+      "event": "Tugs Alongside / Made Fast",
+      "date": "2025-12-29",
+      "time": "13:10",
+      "tug_count": 2
+    },
+    {
+      "event": "Last Line / Underway",
+      "date": "2025-12-29",
+      "time": "13:22"
+    },
+    {
+      "event": "Tugs Away",
+      "date": "2025-12-29",
+      "time": "13:46"
+    },
+    {
+      "event": "Pilot Off",
+      "date": "2025-12-29",
+      "time": "13:54"
+    },
+    {
+      "event": "SOSP",
+      "date": "2025-12-29",
+      "time": "14:15"
+    }
+  ]
+}

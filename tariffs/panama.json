@@ -1,0 +1,126 @@
+{
+  "port_metadata": {
+    "port_name": "Panama",
+    "effective_date": "2025-02-15",
+    "currency": "USD",
+    "vessel_dimension_unit": "meters (m)",
+    "vessel_dimension_note": "While length is recorded as per Lloyd's Register, Panama tariffs are predominantly hourly-based per area rather than bracketed by LOA."
+  },
+  "operating_areas_and_terminals": {
+    "CHIRIQUI_GRANDE": {
+      "port_terminals": [
+        "Port of Chiriquí Grande",
+        "Juan Cuero",
+        "Chalite"
+      ],
+      "spm_terminals": [
+        "Single Point Mooring (SPM)"
+      ]
+    },
+    "COLON_PORT_TERMINALS": {
+      "terminals": [
+        "Port of Colón",
+        "Limon Bay",
+        "LNG Jetty",
+        "Telfer",
+        "MIT (Manzanillo International Terminal)",
+        "Colón 2000",
+        "PPC Cristobal",
+        "Coassa",
+        "CCT (Colon Container Terminal)"
+      ]
+    },
+    "BAHIA_LAS_MINAS": {
+      "terminals": [
+        "Las Minas Terminal"
+      ]
+    },
+    "PANAMA_BAY_PACIFIC": {
+      "terminals": [
+        "Taboguilla Terminal",
+        "Melones Terminal"
+      ]
+    },
+    "PORT_OF_BALBOA": {
+      "terminals": [
+        "PPC Multipurpose Pier",
+        "PATSA Terminal",
+        "Astibal Shipyard",
+        "PSA Terminal",
+        "PPC Container Terminal"
+      ]
+    }
+  },
+  "tariff_a_port_towing": [
+    {
+      "area": "Balboa Port Terminals",
+      "base_rate_usd": 2163.0,
+      "billing_unit": "per hour",
+      "additional_time_logic": "Prorated every 15 minutes"
+    },
+    {
+      "area": "Panama Bay (Pacific)",
+      "base_rate_usd": 6128.5,
+      "billing_unit": "first 3 hours",
+      "additional_time_logic": "$1,957 per additional hour, prorated every 15 minutes"
+    },
+    {
+      "area": "Chiriqui Grande (SPM)",
+      "base_rate_usd": 1545.0,
+      "billing_unit": "per hour",
+      "minimum_charge_usd": 41200.0,
+      "additional_time_logic": "$1,545 per hour prorated every 15 minutes"
+    },
+    {
+      "area": "Chiriqui Grande (Port)",
+      "base_rate_usd": 6128.5,
+      "billing_unit": "first 3 hours",
+      "additional_time_logic": "$1,957 per additional hour, prorated every 15 minutes"
+    },
+    {
+      "area": "Colón Port Terminals",
+      "base_rate_usd": 2163.0,
+      "billing_unit": "per hour",
+      "additional_time_logic": "Prorated every 15 minutes"
+    },
+    {
+      "area": "Bahía las Minas",
+      "base_rate_usd": 6128.5,
+      "billing_unit": "first 3 hours",
+      "additional_time_logic": "$1,957 per additional hour, prorated every 15 minutes"
+    }
+  ],
+  "tariff_b_additional_services": {
+    "shifting": {
+      "description": "Shifting of ships within port areas",
+      "calculation_logic": "Charged as one undocking plus one docking"
+    }
+  },
+  "surcharges": {
+    "fuel_bunker_surcharge": {
+      "trigger_price_usd_per_gal": 2.9,
+      "trigger_fuel_type": "ULSD",
+      "reference_source": "Panamá’s Secretaría de Energía (Precio de Paridad)",
+      "example_calculation": "If price is $3.0/gal, surcharge is $200 per tug per maneuver"
+    },
+    "dead_ship_surcharge": {
+      "multiplier": 1.5,
+      "percentage_increase": 50,
+      "applicability": "All rates except waiting and fog",
+      "condition": "Assistance of dead ships (no own propulsion/steerage)"
+    }
+  },
+  "calculation_logic_subtext": {
+    "time_counting": {
+      "start": "Time the tug leaves its station",
+      "end": "Time the tug has returned to its station"
+    },
+    "exclusions": [
+      "Tariff rates do not apply in case of drift-ice",
+      "Does not apply to vessels broken loose from moorings",
+      "Does not apply to assistance outside mentioned areas",
+      "Does not apply to emergency or salvage services"
+    ],
+    "governing_conditions": "UK Standard Conditions For Towage And Other Services (Revised 1986)"
+  }
+}

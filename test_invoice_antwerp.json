@@ -1,0 +1,54 @@
+{
+  "invoice_reference": "960326000434",
+  "purchase_order": "SCM2600140",
+  "vendor": "Boluda (Harbour Towage Antwerp on the River Scheldt)",
+  "port": "Antwerp",
+  "vessel_name": "WONDER MIMOSA",
+  "vessel_loa": "184,22",
+  "vessel_gt": "23.309",
+  "vessel_imo": "9312901",
+  "invoice_date": "2026-01-26",
+  "service_date": "2026-01-18",
+  "currency": "EUR",
+  "notes": [
+    "18-Jan-2026 is a Sunday — Holiday surcharge 50% applies per tariff",
+    "Discount 43% applied to gross+holiday subtotal (5,460 × 43% = 2,347.80) — contractual, pending contract receipt",
+    "Bunker surcharge 11% applied to gross base (3,640 × 11% = 400.40) — variable, accepted on face value"
+  ],
+  "line_items": [
+    {
+      "service_type": "Inward",
+      "description": "Arrival from Sea to Ligplaats 302, 6e HAVENDOK (Antwerpen)",
+      "date": "2026-01-18",
+      "loa": "184,22",
+      "zone": "ZANDVLIET_KRUISSCHANS",
+      "tug_count": 2,
+      "amount": 3640.00
+    },
+    {
+      "service_type": "Holiday Surcharge",
+      "description": "Holiday Surcharge 50% (Sunday 18-Jan-2026)",
+      "date": "2026-01-18",
+      "amount": 1820.00,
+      "is_adjustment": true,
+      "note": "Tariff-specified: 50% of base tug charge for Sunday/public holiday work. 3,640 × 50% = 1,820.00"
+    },
+    {
+      "service_type": "Discount",
+      "description": "Discount 43%",
+      "date": "2026-01-18",
+      "amount": -2347.80,
+      "is_adjustment": true,
+      "note": "Contractual discount — applied to gross+holiday subtotal (5,460 × 43% = 2,347.80). Pending contract verification."
+    },
+    {
+      "service_type": "Bunker Surcharge",
+      "description": "Bunker Surcharge 11%",
+      "date": "2026-01-18",
+      "amount": 400.40,
+      "is_adjustment": true,
+      "note": "Variable bunker surcharge on base (3,640 × 11% = 400.40). Accepted on face value."
+    }
+  ],
+  "total_amount": 3512.60
+}

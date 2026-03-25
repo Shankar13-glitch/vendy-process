@@ -1,0 +1,266 @@
+{
+  "port_metadata": {
+    "port_name": "Brake",
+    "effective_date": "2026-01-01",
+    "currency": "EUR",
+    "vessel_dimension_unit": "Gross Tonnage (GT)",
+    "vessel_dimension_source": "International Tonnage Certificate (1969)"
+  },
+  "tariff_a_seagoing_vessels": {
+    "description": "Seagoing vessels with operational main engine. Rates per tug and move.",
+    "rates": [
+      {
+        "gt_min": 0,
+        "gt_max": 4000,
+        "rate_eur": 2156
+      },
+      {
+        "gt_min": 4001,
+        "gt_max": 6000,
+        "rate_eur": 2771
+      },
+      {
+        "gt_min": 6001,
+        "gt_max": 8000,
+        "rate_eur": 3122
+      },
+      {
+        "gt_min": 8001,
+        "gt_max": 10000,
+        "rate_eur": 3460
+      },
+      {
+        "gt_min": 10001,
+        "gt_max": 12000,
+        "rate_eur": 3636
+      },
+      {
+        "gt_min": 12001,
+        "gt_max": 14000,
+        "rate_eur": 3811
+      },
+      {
+        "gt_min": 14001,
+        "gt_max": 16000,
+        "rate_eur": 3987
+      },
+      {
+        "gt_min": 16001,
+        "gt_max": 18000,
+        "rate_eur": 4325
+      },
+      {
+        "gt_min": 18001,
+        "gt_max": 20000,
+        "rate_eur": 4500
+      },
+      {
+        "gt_min": 20001,
+        "gt_max": 22000,
+        "rate_eur": 4676
+      },
+      {
+        "gt_min": 22001,
+        "gt_max": 24000,
+        "rate_eur": 4919
+      },
+      {
+        "gt_min": 24001,
+        "gt_max": 26000,
+        "rate_eur": 5265
+      },
+      {
+        "gt_min": 26001,
+        "gt_max": 28000,
+        "rate_eur": 5616
+      },
+      {
+        "gt_min": 28001,
+        "gt_max": 30000,
+        "rate_eur": 5879
+      },
+      {
+        "gt_min": 30001,
+        "gt_max": 35000,
+        "rate_eur": 6054
+      },
+      {
+        "gt_min": 35001,
+        "gt_max": 40000,
+        "rate_eur": 6230
+      },
+      {
+        "gt_min": 40001,
+        "gt_max": 45000,
+        "rate_eur": 6393
+      },
+      {
+        "gt_min": 45001,
+        "gt_max": 50000,
+        "rate_eur": 6568
+      },
+      {
+        "gt_min": 50001,
+        "gt_max": 60000,
+        "rate_eur": 6769
+      },
+      {
+        "gt_min": 60001,
+        "gt_max": 70000,
+        "rate_eur": 6945
+      },
+      {
+        "gt_min": 70001,
+        "gt_max": 80000,
+        "rate_eur": 7107
+      },
+      {
+        "gt_min": 80001,
+        "gt_max": 90000,
+        "rate_eur": 7296
+      },
+      {
+        "gt_min": 90001,
+        "gt_max": 100000,
+        "rate_eur": 7471
+      },
+      {
+        "gt_min": 100001,
+        "gt_max": 110000,
+        "rate_eur": 7659
+      },
+      {
+        "gt_min": 110001,
+        "gt_max": 120000,
+        "rate_eur": 7834
+      },
+      {
+        "gt_min": 120001,
+        "gt_max": 130000,
+        "rate_eur": 8022
+      },
+      {
+        "gt_min": 130001,
+        "gt_max": 140000,
+        "rate_eur": 8198
+      },
+      {
+        "gt_min": 140001,
+        "gt_max": 150000,
+        "rate_eur": 8386
+      },
+      {
+        "gt_min": 150001,
+        "gt_max": 160000,
+        "rate_eur": 8561
+      },
+      {
+        "gt_min": 160001,
+        "gt_max": 170000,
+        "rate_eur": 8737
+      },
+      {
+        "gt_min": 170001,
+        "gt_max": 180000,
+        "rate_eur": 8919
+      },
+      {
+        "gt_min": 180001,
+        "gt_max": 190000,
+        "rate_eur": 9101
+      },
+      {
+        "gt_min": 190001,
+        "gt_max": 200000,
+        "rate_eur": 9276
+      }
+    ],
+    "oversize_logic": {
+      "gt_threshold": 200000,
+      "increment_unit_gt": 10000,
+      "increment_rate_eur": 376
+    }
+  },
+  "tariff_b_hourly_rates": {
+    "billing_logic": "First 60 mins count as full hour; thereafter charged in 30-min periods [1, 7].",
+    "rates_matrix": [
+      {
+        "tug_bollard_pull": "< 40t bp",
+        "hourly_working_rate_eur": 869,
+        "hourly_standby_rate_eur": 1219
+      },
+      {
+        "tug_bollard_pull": "> 40t bp",
+        "hourly_working_rate_eur": 942,
+        "hourly_standby_rate_eur": 1317
+      },
+      {
+        "tug_bollard_pull": "> 50t bp",
+        "hourly_working_rate_eur": 1287,
+        "hourly_standby_rate_eur": 1799
+      },
+      {
+        "tug_bollard_pull": "> 60t bp",
+        "hourly_working_rate_eur": 1389,
+        "hourly_standby_rate_eur": 1943
+      }
+    ]
+  },
+  "additional_services_logic": {
+    "escorting_services": {
+      "description": "Escorting Service on River from Harbour limit into the port or vice versa [1, 8].",
+      "billing_rate_source": "hourly_working_rate_eur",
+      "timing": "Starts leaving tug station, ends arriving at station or start of berthing [8]."
+    },
+    "waiting_time": {
+      "grace_period_mins": 30,
+      "logic": "First hour charged in full if 30 mins exceeded, then 30-min increments [1, 2].",
+      "billing_rate_source": "hourly_standby_rate_eur"
+    },
+    "wind_holding": {
+      "trigger_wind_force_bft": 6,
+      "logic": "Preventing vessel from breaking loose from mooring during strong winds [1, 3].",
+      "billing_rate_source": "hourly_standby_rate_eur"
+    }
+  },
+  "surcharges": [
+    {
+      "name": "Dead Ship",
+      "condition": "Assisting vessel without using its own propeller [1, 3].",
+      "surcharge_pct": 50,
+      "multiplier": 1.5,
+      "base_tariff": "Tariff A"
+    },
+    {
+      "name": "Late Order",
+      "condition": "Ordered < 4 hours before scheduled start or during operation [1].",
+      "surcharge_pct": 100,
+      "multiplier": 2.0,
+      "base_tariff": "Applicable tug rate"
+    },
+    {
+      "name": "Cancellation (short notice)",
+      "condition": "Cancelled < 1 hour before tug leaves station [1, 9].",
+      "surcharge_pct": 50,
+      "multiplier": 0.5,
+      "base_tariff": "Tariff A"
+    },
+    {
+      "name": "Cancellation (after departure)",
+      "condition": "Cancelled after tug left berth at base port [1, 9].",
+      "surcharge_pct": 100,
+      "multiplier": 1.0,
+      "base_tariff": "Tariff A"
+    }
+  ],
+  "exclusions": {
+    "emergency_response": {
+      "description": "Standard rates do not apply to Emergency Assistance, Salvage, Drift Ice, or Vessel broken loose from mooring [1, 10].",
+      "billing_logic": "Individual agreement will be made."
+    }
+  },
+  "notice_periods": {
+    "preliminary_notice_hrs": 6,
+    "firm_confirmation_hrs": 4
+  }
+}

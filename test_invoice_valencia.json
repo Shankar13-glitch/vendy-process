@@ -1,0 +1,31 @@
+{
+  "invoice_reference": "0900015985",
+  "vendor": "Boluda Towage Spain, SL (Sertosa)",
+  "port": "Valencia",
+  "vessel_name": "ASTERION",
+  "service_date": "2025-05-26",
+  "line_items": [
+    {
+      "service_type": "Berth",
+      "date": "2025-05-26",
+      "description": "Atraque / Berth",
+      "gt": "23.261",
+      "vessel_type": "general",
+      "tug_count": 2,
+      "amount": 3864.04,
+      "tugs": ["VB FURIA", "VB XEREA"]
+    },
+    {
+      "service_type": "Unberth",
+      "date": "2025-05-27",
+      "description": "Desatraque / Unberth",
+      "gt": "23.261",
+      "vessel_type": "general",
+      "tug_count": 2,
+      "amount": 3864.04,
+      "tugs": ["VB XALOC", "VB SIDI"]
+    }
+  ],
+  "total_amount": 7728.08,
+  "currency": "EUR"
+}

@@ -1,0 +1,49 @@
+{
+  "vessel": "STI CONNAUGHT",
+  "voyage": "88",
+  "port": "Rotterdam, Netherlands",
+  "events": [
+    {
+      "event": "EOSP / Free Pratique Granted",
+      "date": "2026-03-08",
+      "time": "04:48"
+    },
+    {
+      "event": "Anchor Up",
+      "date": "2026-03-11",
+      "time": "04:48"
+    },
+    {
+      "event": "Pilot On Board",
+      "date": "2026-03-11",
+      "time": "08:12"
+    },
+    {
+      "event": "Tugs Made Fast",
+      "date": "2026-03-11",
+      "time": "09:36",
+      "tug_count": 2,
+      "note": "VB BEAGLE fwd center lead, VB ROTTERDAM aft center lead"
+    },
+    {
+      "event": "First Line Ashore",
+      "date": "2026-03-11",
+      "time": "10:54"
+    },
+    {
+      "event": "Tugs Released",
+      "date": "2026-03-11",
+      "time": "11:36"
+    },
+    {
+      "event": "All Fast at Vopak Terminal Europoort Jetty No.4 West",
+      "date": "2026-03-11",
+      "time": "11:48"
+    },
+    {
+      "event": "Pilot Off",
+      "date": "2026-03-11",
+      "time": "11:48"
+    }
+  ]
+}

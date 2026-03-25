@@ -1,0 +1,52 @@
+{
+  "vessel": "STI FULHAM",
+  "imo": "9688374",
+  "voyage": "TFUL-195",
+  "port": "Rostock",
+  "quay": "Olhafen GOR Jetty 04",
+  "events": [
+    {
+      "event": "End of Seapassage / NOR Tendered",
+      "date": "2025-04-17",
+      "time": "09:30"
+    },
+    {
+      "event": "Dropped Anchor / NOR Re-Tendered",
+      "date": "2025-04-17",
+      "time": "10:48",
+      "note": "Anchored - Awaiting availability of tugs for berthing"
+    },
+    {
+      "event": "Anchor Aweigh",
+      "date": "2025-04-17",
+      "time": "15:06"
+    },
+    {
+      "event": "Pilot On Board",
+      "date": "2025-04-17",
+      "time": "15:24"
+    },
+    {
+      "event": "Tugs Made Fast",
+      "date": "2025-04-17",
+      "time": "15:06",
+      "tug_count": 2,
+      "note": "Entering/berthing started 15:06 per SOF delays table"
+    },
+    {
+      "event": "First Line Ashore",
+      "date": "2025-04-17",
+      "time": "17:06"
+    },
+    {
+      "event": "All Fast at Port / NOR Re-Tendered",
+      "date": "2025-04-17",
+      "time": "17:30"
+    },
+    {
+      "event": "Gangway Down",
+      "date": "2025-04-17",
+      "time": "18:00"
+    }
+  ]
+}

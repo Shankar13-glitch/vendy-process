@@ -1,0 +1,138 @@
+{
+  "port_metadata": {
+    "port_name": "Altamira",
+    "country": "Mexico",
+    "provider": "Compañía Marítima Mexicana, S.A. de C.V.",
+    "effective_date": "2025-04-20",
+    "currency": "USD",
+    "vessel_dimension_unit": "Gross Register Tonnage (GRT / TRB)",
+    "vessel_dimension_source": "Competent Maritime Authority Certificate"
+  },
+  "geographic_scope_and_terminals": {
+    "primary_operating_area": "Port of Altamira",
+    "limits": "Between the entrance breakwaters and the terrestrial port perimeter",
+    "terminals": [
+      "All terminals within the terrestrial port perimeter of Altamira"
+    ]
+  },
+  "billing_logic_definitions": {
+    "maneuver_types": [
+      "Arrivals (Entradas)",
+      "Departures (Salidas)",
+      "Shifts (Enmiendas)"
+    ],
+    "normal_service_includes": "Berthing, unberthing, or anchoring maneuvers",
+    "time_measurement": {
+      "movement_time_definition": "Legally considered to be 20 minutes before the time indicated in the service request",
+      "start_trigger": "Time lines are received or the tug is at the indicated place",
+      "end_trigger": "Time lines are cast off and the tug's presence is no longer required"
+    },
+    "duration_logic": {
+      "standard_included_duration_hrs": 1.0,
+      "additional_time_increment_mins": 15,
+      "rounding": "Any fraction of 15 minutes is rounded up to a full 15-minute period",
+      "surcharge_basis": "25% of the base maneuver rate per 15-minute increment"
+    }
+  },
+  "vessel_and_equipment_logic": {
+    "bow_thruster_rules": {
+      "standard": "Vessels with an operational Bow Thruster utilize the 'With Bow Thruster' rate column",
+      "exception_two_tugs": "If two tugs are specifically requested for a vessel equipped with a Bow Thruster, the 'Without Bow Thruster' rate must be applied"
+    },
+    "horsepower_neutrality": "Rates are applied based solely on vessel GRT, regardless of the Horsepower (HP) of the tugs employed"
+  },
+  "tariff_matrix_per_tug": [
+    {
+      "grt_bracket": "Under 2,500",
+      "with_bow_thruster_rate": 20833.0,
+      "without_bow_thruster_rate": 23131.0
+    },
+    {
+      "grt_bracket": "2,501 to 5,000",
+      "with_bow_thruster_rate": 27486.0,
+      "without_bow_thruster_rate": 31019.0
+    },
+    {
+      "grt_bracket": "5,001 to 7,500",
+      "with_bow_thruster_rate": 36633.0,
+      "without_bow_thruster_rate": 40594.0
+    },
+    {
+      "grt_bracket": "7,501 to 10,000",
+      "with_bow_thruster_rate": 40179.0,
+      "without_bow_thruster_rate": 44327.0
+    },
+    {
+      "grt_bracket": "10,001 to 12,500",
+      "with_bow_thruster_rate": 50359.0,
+      "without_bow_thruster_rate": 55773.0
+    },
+    {
+      "grt_bracket": "12,501 to 15,000",
+      "with_bow_thruster_rate": 64931.0,
+      "without_bow_thruster_rate": 72213.0
+    },
+    {
+      "grt_bracket": "15,001 and above",
+      "with_bow_thruster_rate": 76778.0,
+      "without_bow_thruster_rate": 84681.0
+    }
+  ],
+  "surcharges_and_multipliers": [
+    {
+      "name": "Small Vessel Discount",
+      "condition": "Vessels less than 2,500 GRT requesting service",
+      "surcharge_pct": -30.0,
+      "multiplier": 0.7,
+      "logic": "Charge is 70% of the minimum scale (Under 2,500 bracket)"
+    },
+    {
+      "name": "Additional Time / Overtime",
+      "condition": "Service exceeds 1 hour",
+      "surcharge_pct": 25.0,
+      "multiplier": 0.25,
+      "basis": "Per 15 minutes or fraction thereof",
+      "applied_to": "Base maneuver rate"
+    },
+    {
+      "name": "Late Cancellation",
+      "condition": "Notice given < 1 hour before tug movement (Requested Time - 20 mins)",
+      "surcharge_pct": 25.0,
+      "multiplier": 0.25,
+      "applied_to": "Corresponding tariff rate"
+    },
+    {
+      "name": "Cancellation After Movement",
+      "condition": "User desists after tugs have started moving",
+      "surcharge_pct": 75.0,
+      "multiplier": 0.75,
+      "applied_to": "Corresponding tariff rate"
+    },
+    {
+      "name": "Waiting Time",
+      "condition": "Tug waits due to vessel delay",
+      "surcharge_pct": 25.0,
+      "multiplier": 0.25,
+      "basis": "Per hour or fraction, starting from time indicated in request"
+    }
+  ],
+  "exclusions": {
+    "vessel_types": [
+      {
+        "type": "Tourist Cruise Ships",
+        "note": "Exempt from this tariff; billed under office DGP.-1278/2024 (April 4, 2024)"
+      }
+    ],
+    "service_types": [
+      {
+        "type": "Salvage and Emergency Assistance",
+        "note": "Not subject to fixed rates; subject to international customs and negotiation"
+      }
+    ]
+  },
+  "administrative_subtext": {
+    "notice_period": "3 hours in advance during office hours (Mon-Fri 09:00-19:30, Sat 09:00-13:00). After hours via VHF",
+    "payment_requirement": "Users must cover estimated amount at the time of request",
+    "resolution_authority": "General Directorate of Ports of the Secretariat of the Navy"
+  }
+}

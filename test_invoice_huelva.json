@@ -1,0 +1,44 @@
+{
+  "invoice_reference": "0340015254",
+  "purchase_order": "SCM2600414",
+  "vendor": "Auxiliar Maritima del Sur S.A. (AUXMASA) / Boluda Towage Spain",
+  "port": "Huelva",
+  "vessel_name": "STI FINCHLEY",
+  "vessel_gt": "24,230",
+  "vessel_imo": "9696565",
+  "invoice_date": "2026-02-28",
+  "service_date": "2026-02-21",
+  "currency": "EUR",
+  "notes": [
+    "GT 24,230 -> bracket '15,001 - 25,000' in general_traffic table -> VP=0.14136, FP=2699.9",
+    "Rate = (0.14136 x 24,230) + 2,699.9 = 3,425.15 + 2,699.9 = 6,125.05 EUR",
+    "Tariff effective 2025-07-17 -- same tariff applies to Feb 2026 services (no year gap)",
+    "IVA NO SUJETO -- Inversion del sujeto pasivo (VAT reverse charge, 0 EUR)",
+    "2 tugs each operation: VB BORA + VB BOREAL (berth), VB BORA + VB SIDI (unberth)",
+    "Berth duration 72min < 80min threshold -- no delay surcharge applies",
+    "Unberth duration 30min < 80min threshold -- no delay surcharge applies"
+  ],
+  "line_items": [
+    {
+      "service_type": "Berth",
+      "description": "Atraque / Berth -- 21.02.2026 -- VB BORA + VB BOREAL",
+      "date": "2026-02-21",
+      "gt": "24,230",
+      "zone": "general_traffic",
+      "tug_count": 2,
+      "amount": 6125.05,
+      "note": "Rate = (0.14136 x 24230) + 2699.9 = 6125.05 EUR. Per maneuver regardless of tug count."
+    },
+    {
+      "service_type": "Unberth",
+      "description": "Desatraque / Unberth -- 24.02.2026 -- VB BORA + VB SIDI",
+      "date": "2026-02-24",
+      "gt": "24,230",
+      "zone": "general_traffic",
+      "tug_count": 2,
+      "amount": 6125.05,
+      "note": "Same rate applies. Per maneuver regardless of tug count."
+    }
+  ],
+  "total_amount": 12250.10
+}

@@ -1,0 +1,79 @@
+{
+  "invoice_reference": "MZT-2025-08-OBSIDIAN",
+  "vendor": "Compania Maritima del Pacifico S.A. de C.V.",
+  "port": "Mazatlan",
+  "vessel_name": "OBSIDIAN",
+  "vessel_grt": "29,767",
+  "vessel_imo": "9311018",
+  "service_date": "2025-08-12",
+  "currency": "USD",
+  "notes": [
+    "GRT 29,767 -> bracket 'Over 25,001' -> 16.53 MXN/HP/hr (field named rate_per_hp_hour_usd but value is MXN)",
+    "Berth 12.08.2025: billing start = 13:20 (20min pre-service per tariff rule). End 15:00. Duration 100min -> 1hr + 3x15min = 1.75hr billing",
+    "Unberth 14.08.2025: 06:00-06:18 = 18min < 1hr -> 1.00hr minimum",
+    "FX rates from BANXICO: 18.5518 MXN/USD (11.08.2025) for berth, 18.5657 MXN/USD (13.08.2025) for unberth",
+    "Tugs: VB SINALOA (4200 HP), VB CONTADORA (4400 HP) for both operations",
+    "Comision/descuento ~3% per tug shown as adjustment lines (not tariff-based)",
+    "IVA 16% applies to net amounts -- treated as tax adjustment outside scope"
+  ],
+  "line_items": [
+    {
+      "service_type": "Berth",
+      "description": "Berth (Inward) 12.08.2025 -- VB SINALOA (4200 HP) + VB CONTADORA (4400 HP)",
+      "date": "2025-08-12",
+      "grt": "29,767",
+      "tug_count": 2,
+      "tug_hp_list": [4200, 4400],
+      "duration_hrs": 1.75,
+      "fx_rate_mxn_usd": 18.5518,
+      "amount": 13409.82,
+      "note": "VB SINALOA: 16.53x4200x1.75=121495.5 MXN / 18.5518 = $6548.99 USD. VB CONTADORA: 16.53x4400x1.75=127281 MXN / 18.5518 = $6860.84 USD. Total $13409.83 USD"
+    },
+    {
+      "service_type": "Unberthing",
+      "description": "Unberth (Outward) 14.08.2025 -- VB SINALOA (4200 HP) + VB CONTADORA (4400 HP)",
+      "date": "2025-08-14",
+      "grt": "29,767",
+      "tug_count": 2,
+      "tug_hp_list": [4200, 4400],
+      "duration_hrs": 1.00,
+      "fx_rate_mxn_usd": 18.5657,
+      "amount": 7657.02,
+      "note": "VB SINALOA: 16.53x4200x1.0=69426 MXN / 18.5657 = $3739.48 USD. VB CONTADORA: 16.53x4400x1.0=72732 MXN / 18.5657 = $3917.55 USD. Total $7657.03 USD",
+      "is_unberth": true
+    },
+    {
+      "service_type": "Discount",
+      "description": "Commission/Descuento Berth (~3%)",
+      "date": "2025-08-12",
+      "amount": -402.29,
+      "is_adjustment": true,
+      "note": "Approx 3% commission on berth gross: $196.47 (SINALOA) + $205.83 (CONTADORA). Pending contract."
+    },
+    {
+      "service_type": "Discount",
+      "description": "Commission/Descuento Unberth (~3%)",
+      "date": "2025-08-14",
+      "amount": -229.71,
+      "is_adjustment": true,
+      "note": "Approx 3% commission on unberth gross: $112.18 (SINALOA) + $117.53 (CONTADORA). Pending contract."
+    },
+    {
+      "service_type": "Tax",
+      "description": "IVA 16% (Berth net)",
+      "date": "2025-08-12",
+      "amount": 2081.21,
+      "is_adjustment": true,
+      "note": "Mexican VAT 16% on net berth amount ($13007.53 x 16% = $2081.21). Accepted on face value."
+    },
+    {
+      "service_type": "Tax",
+      "description": "IVA 16% (Unberth net)",
+      "date": "2025-08-14",
+      "amount": 1187.73,
+      "is_adjustment": true,
+      "note": "Mexican VAT 16% on net unberth amount ($7427.31 x 16% = $1188.37). Small rounding difference."
+    }
+  ],
+  "total_amount_usd": 23905.28
+}

@@ -1,0 +1,500 @@
+{
+  "port_metadata": {
+    "port_name": "Santa Cruz de Tenerife and Santa Cruz de la Palma",
+    "country": "Spain",
+    "provider": "Boluda Towage Spain",
+    "effective_date": "2025-05-29",
+    "currency": "EUR (€)",
+    "vessel_dimension_unit": "Gross Tonnage (GT)",
+    "vessel_dimension_source": "1969 London Convention"
+  },
+  "geographic_scope_and_terminals": {
+    "primary_operating_locations": [
+      "Santa Cruz de Tenerife",
+      "Santa Cruz de la Palma"
+    ],
+    "terminal_types_and_specific_docks": [
+      {
+        "name": "La Hodura Oil Terminal",
+        "type": "Oil Terminal",
+        "vessel_type_focus": "Tankers/Oil Carriers"
+      },
+      {
+        "name": "Comercial",
+        "type": "Commercial Port Area"
+      },
+      {
+        "name": "Granadilla Dock",
+        "type": "Industrial/Commercial"
+      },
+      {
+        "name": "Santa Cruz de la Palma",
+        "type": "General Port"
+      },
+      {
+        "name": "Los Cristianos / San Sebastián de La Gomera / La Estaca",
+        "type": "Satellite/Commute Ports"
+      }
+    ]
+  },
+  "billing_logic_definitions": {
+    "service_basis": "Rates are established per service, independently of the number of tugboats used.",
+    "standard_duration_limit_hrs": 1.0,
+    "calculation_formula": "Total Rate = Fixed Part + (Variable Part * Vessel GT)",
+    "billing_units": {
+      "fixed_part": "EUR",
+      "variable_part": "EUR per GT"
+    },
+    "service_definitions": {
+      "maneuvers_included": [
+        "Entry and berth",
+        "Unberth and exit",
+        "Vessel movement inside the port"
+      ],
+      "actions_rendered": [
+        "Application of driving force (Pushing or pulling)",
+        "Escorting",
+        "Stand by",
+        "Pushing services for berthed vessels"
+      ]
+    }
+  },
+  "tariff_matrix_consolidated": [
+    {
+      "gt_range": "0 to 1,000",
+      "la_hodura_oil_terminal": {
+        "fixed": 573.3,
+        "variable": 0.00242
+      },
+      "comercial": {
+        "fixed": 438.6,
+        "variable": 0.02157
+      },
+      "granadilla": {
+        "fixed": 438.6,
+        "variable": 0.02157
+      },
+      "sta_cruz_la_palma": {
+        "fixed": 438.6,
+        "variable": 0.02157
+      },
+      "gomera_estaca_cristianos": {
+        "fixed": 438.6,
+        "variable": 0.02157
+      }
+    },
+    {
+      "gt_range": "1,001 to 5,000",
+      "la_hodura_oil_terminal": {
+        "fixed": 573.3,
+        "variable": 0.00242
+      },
+      "comercial": {
+        "fixed": 438.6,
+        "variable": 0.02157
+      },
+      "granadilla": {
+        "fixed": 438.6,
+        "variable": 0.02157
+      },
+      "sta_cruz_la_palma": {
+        "fixed": 438.6,
+        "variable": 0.02157
+      },
+      "gomera_estaca_cristianos": {
+        "fixed": 438.6,
+        "variable": 0.02157
+      }
+    },
+    {
+      "gt_range": "5,001 to 7,000",
+      "la_hodura_oil_terminal": {
+        "fixed": 829.34,
+        "variable": 0.029
+      },
+      "comercial": {
+        "fixed": 687.96,
+        "variable": 0.04028
+      },
+      "granadilla": {
+        "fixed": 687.96,
+        "variable": 0.04028
+      },
+      "sta_cruz_la_palma": {
+        "fixed": 687.96,
+        "variable": 0.04028
+      },
+      "gomera_estaca_cristianos": {
+        "fixed": 687.96,
+        "variable": 0.04028
+      }
+    },
+    {
+      "gt_range": "7,001 to 10,000",
+      "la_hodura_oil_terminal": {
+        "fixed": 1333.61,
+        "variable": 0.0292
+      },
+      "comercial": {
+        "fixed": 888.34,
+        "variable": 0.08652
+      },
+      "granadilla": {
+        "fixed": 888.34,
+        "variable": 0.08652
+      },
+      "sta_cruz_la_palma": {
+        "fixed": 888.34,
+        "variable": 0.08652
+      },
+      "gomera_estaca_cristianos": {
+        "fixed": 888.34,
+        "variable": 0.08652
+      }
+    },
+    {
+      "gt_range": "10,001 to 13,000",
+      "la_hodura_oil_terminal": {
+        "fixed": 2062.77,
+        "variable": 0.07403
+      },
+      "comercial": {
+        "fixed": 888.34,
+        "variable": 0.08652
+      },
+      "granadilla": {
+        "fixed": 888.34,
+        "variable": 0.08652
+      },
+      "sta_cruz_la_palma": {
+        "fixed": 888.34,
+        "variable": 0.08652
+      },
+      "gomera_estaca_cristianos": {
+        "fixed": 888.34,
+        "variable": 0.08652
+      }
+    },
+    {
+      "gt_range": "13,001 to 15,000",
+      "la_hodura_oil_terminal": {
+        "fixed": 3126.99,
+        "variable": 0.13294
+      },
+      "comercial": {
+        "fixed": 888.34,
+        "variable": 0.08652
+      },
+      "granadilla": {
+        "fixed": 888.34,
+        "variable": 0.08652
+      },
+      "sta_cruz_la_palma": {
+        "fixed": 888.34,
+        "variable": 0.08652
+      },
+      "gomera_estaca_cristianos": {
+        "fixed": 888.34,
+        "variable": 0.08652
+      }
+    },
+    {
+      "gt_range": "15,001 to 19,000",
+      "la_hodura_oil_terminal": {
+        "fixed": 3564.48,
+        "variable": 0.12794
+      },
+      "comercial": {
+        "fixed": 1480.56,
+        "variable": 0.08652
+      },
+      "granadilla": {
+        "fixed": 1480.56,
+        "variable": 0.08652
+      },
+      "sta_cruz_la_palma": {
+        "fixed": 1480.56,
+        "variable": 0.08652
+      },
+      "gomera_estaca_cristianos": {
+        "fixed": 1480.56,
+        "variable": 0.08652
+      }
+    },
+    {
+      "gt_range": "19,001 to 25,000",
+      "la_hodura_oil_terminal": {
+        "fixed": 3564.48,
+        "variable": 0.15317
+      },
+      "comercial": {
+        "fixed": 1480.56,
+        "variable": 0.11645
+      },
+      "granadilla": {
+        "fixed": 1480.56,
+        "variable": 0.11645
+      },
+      "sta_cruz_la_palma": {
+        "fixed": 1480.56,
+        "variable": 0.11645
+      },
+      "gomera_estaca_cristianos": {
+        "fixed": 1480.56,
+        "variable": 0.11645
+      }
+    },
+    {
+      "gt_range": "25,001 to 30,000",
+      "la_hodura_oil_terminal": {
+        "fixed": 3564.48,
+        "variable": 0.15317
+      },
+      "comercial": {
+        "fixed": 1480.56,
+        "variable": 0.14132
+      },
+      "granadilla": {
+        "fixed": 1480.56,
+        "variable": 0.14132
+      },
+      "sta_cruz_la_palma": {
+        "fixed": 1480.56,
+        "variable": 0.14132
+      },
+      "gomera_estaca_cristianos": {
+        "fixed": 1480.56,
+        "variable": 0.14132
+      }
+    },
+    {
+      "gt_range": "30,001 to 50,000",
+      "la_hodura_oil_terminal": {
+        "fixed": 3564.48,
+        "variable": 0.18173
+      },
+      "comercial": {
+        "fixed": 1658.67,
+        "variable": 0.14626
+      },
+      "granadilla": {
+        "fixed": 1658.67,
+        "variable": 0.14626
+      },
+      "sta_cruz_la_palma": {
+        "fixed": 1658.67,
+        "variable": 0.14626
+      },
+      "gomera_estaca_cristianos": {
+        "fixed": 1658.67,
+        "variable": 0.14626
+      }
+    },
+    {
+      "gt_range": "50,001 to 60,000",
+      "la_hodura_oil_terminal": {
+        "fixed": 5788.66,
+        "variable": 0.34473
+      },
+      "comercial": {
+        "fixed": 1777.78,
+        "variable": 0.14388
+      },
+      "granadilla": {
+        "fixed": 1777.78,
+        "variable": 0.14388
+      },
+      "sta_cruz_la_palma": {
+        "fixed": 1777.78,
+        "variable": 0.14388
+      },
+      "gomera_estaca_cristianos": {
+        "fixed": 1777.78,
+        "variable": 0.14388
+      }
+    },
+    {
+      "gt_range": "60,001 to 75,000",
+      "la_hodura_oil_terminal": {
+        "fixed": 8853.31,
+        "variable": 0.35206
+      },
+      "comercial": {
+        "fixed": 1777.78,
+        "variable": 0.15004
+      },
+      "granadilla": {
+        "fixed": 1777.78,
+        "variable": 0.15004
+      },
+      "sta_cruz_la_palma": {
+        "fixed": 1777.78,
+        "variable": 0.15004
+      },
+      "gomera_estaca_cristianos": {
+        "fixed": 1777.78,
+        "variable": 0.15004
+      }
+    },
+    {
+      "gt_range": "75,001 to 100,000",
+      "la_hodura_oil_terminal": {
+        "fixed": 10478.58,
+        "variable": 0.35309
+      },
+      "comercial": {
+        "fixed": 1777.78,
+        "variable": 0.15004
+      },
+      "granadilla": {
+        "fixed": 1757.92,
+        "variable": 0.14836
+      },
+      "sta_cruz_la_palma": {
+        "fixed": 1757.92,
+        "variable": 0.14836
+      },
+      "gomera_estaca_cristianos": {
+        "fixed": 1757.92,
+        "variable": 0.14836
+      }
+    },
+    {
+      "gt_range": "Over 100,001",
+      "la_hodura_oil_terminal": {
+        "fixed": 10478.58,
+        "variable": 0.35309
+      },
+      "comercial": {
+        "fixed": 1777.78,
+        "variable": 0.15004
+      },
+      "granadilla": {
+        "fixed": 1757.92,
+        "variable": 0.14836
+      },
+      "sta_cruz_la_palma": {
+        "fixed": 1757.92,
+        "variable": 0.14836
+      },
+      "gomera_estaca_cristianos": {
+        "fixed": 1757.92,
+        "variable": 0.14836
+      }
+    }
+  ],
+  "surcharges_and_multipliers": [
+    {
+      "name": "Engines Not Running",
+      "condition": "Vessel's propulsion system is non-operational",
+      "surcharge_pct": 50.0,
+      "multiplier": 1.5,
+      "applied_to": "Standard calculated rate (Fixed + Variable)"
+    },
+    {
+      "name": "Dry-dock Maneuver",
+      "condition": "Entry into or exit from dry-dock",
+      "surcharge_pct": 50.0,
+      "multiplier": 1.5,
+      "applied_to": "Standard calculated rate (Fixed + Variable)"
+    },
+    {
+      "name": "Vessel Delay",
+      "condition": "Delay caused by the vessel during service delivery",
+      "surcharge_pct": 50.0,
+      "multiplier": 1.5,
+      "applied_to": "Standard calculated rate (Fixed + Variable)"
+    },
+    {
+      "name": "Extra Time / Overtime",
+      "condition": "Service duration exceeds the standard 1 hour limit",
+      "surcharge_pct": 10.0,
+      "multiplier": 1.1,
+      "basis": "Applied per extra hour or fraction thereof",
+      "applied_to": "Standard calculated rate (Fixed + Variable)"
+    },
+    {
+      "name": "Service Cancellation (Desisting)",
+      "condition": "Service requested but cancelled by vessel captain's orders",
+      "charge_pct": 50.0,
+      "multiplier": 0.5,
+      "applied_to": "Full standard service rate"
+    },
+    {
+      "name": "Escorting Service",
+      "vessel_type_specific": "Any vessel requesting escort maneuvers",
+      "charge_pct": 50.0,
+      "multiplier": 0.5,
+      "applied_to": "Standard rate based on GT"
+    }
+  ],
+  "specific_hourly_rates": [
+    {
+      "service_type": "Pushing and Standby for Berthed Vessels",
+      "rate_eur_per_hour_per_tug": 1001.88,
+      "billing_unit": "Per hour or fraction thereof",
+      "note": "Charged for the full duration of service"
+    },
+    {
+      "service_type": "Extraordinary Services",
+      "rate_eur_per_hour_per_tug": 1001.88,
+      "billing_unit": "Per hour or fraction thereof",
+      "logic": "Starts when tug is at agreed location/time; ends when vessel orders end of maneuver"
+    }
+  ],
+  "geographic_commute_surcharges": {
+    "description": "Additional fixed charges applied per tugboat demanded that commutes between port zones (includes going and returning).",
+    "commute_matrix": [
+      {
+        "origin": "Santa Cruz de Tenerife",
+        "destination": [
+          "Los Cristianos",
+          "San Sebastián de La Gomera"
+        ],
+        "surcharge_eur": 5697.38
+      },
+      {
+        "origin": "Santa Cruz de Tenerife",
+        "destination": "La Estaca",
+        "surcharge_eur": 10085.62
+      },
+      {
+        "origin": "Granadilla Dock",
+        "destination": [
+          "Los Cristianos",
+          "San Sebastián de La Gomera"
+        ],
+        "surcharge_eur": 3641.29
+      },
+      {
+        "origin": "Granadilla Dock",
+        "destination": "La Estaca",
+        "surcharge_eur": 7518.57
+      },
+      {
+        "origin": "Santa Cruz de la Palma",
+        "destination": [
+          "Los Cristianos",
+          "San Sebastián de La Gomera",
+          "La Estaca"
+        ],
+        "surcharge_eur": 4802.36
+      },
+      {
+        "origin": "Santa Cruz de Tenerife",
+        "destination": "Santa Cruz de la Palma",
+        "surcharge_eur": 10062.25
+      },
+      {
+        "origin": "Granadilla Dock",
+        "destination": "Santa Cruz de la Palma",
+        "surcharge_eur": 11126.47
+      },
+      {
+        "origin": "Santa Cruz de la Palma",
+        "destination": "Granadilla Dock",
+        "surcharge_eur": 11126.47
+      }
+    ]
+  }
+}

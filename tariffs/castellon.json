@@ -1,0 +1,186 @@
+{
+  "port_metadata": {
+    "port_name": "Castellón (PortCastelló)",
+    "country": "Spain",
+    "authority": "Board of Administration (Consejo de Administración)",
+    "effective_date": "2023-10-20",
+    "currency": "EUR (€)",
+    "vessel_dimension_unit": "Gross Tonnage (GT)",
+    "vessel_dimension_source": "London Convention 1969"
+  },
+  "geographic_scope_and_zones": {
+    "primary_operating_area": "Port of Castellón",
+    "geographies": [
+      {
+        "name": "Zone I",
+        "description": "General port waters and interior docking areas",
+        "max_maneuver_time_mins": 120
+      },
+      {
+        "name": "Zone II (Campo de Boyas)",
+        "description": "Buoy field area for offshore operations",
+        "max_maneuver_time_mins": 180
+      }
+    ],
+    "terminals_by_section": {
+      "Zone_I": [
+        "All interior berths and piers within the port perimeter"
+      ],
+      "Zone_II": [
+        "Campo de Boyas (Buoy Field / Offshore Terminal)"
+      ]
+    }
+  },
+  "billing_logic_definitions": {
+    "service_basis": "Rates are applied per service regardless of the number of tugboats used",
+    "tariff_nature": "Maximum tariffs applicable in the absence of effective competition to ensure transparency and objectivity",
+    "calculation_formula": "Total Service Charge = Fixed Part + (Variable Part * Vessel GT)",
+    "billing_restrictions": "Surcharges for night-time operations or holidays are strictly prohibited per Article 113.4 of TRLPEMM"
+  },
+  "general_maximum_tariff_zone_i": {
+    "vessel_type_application": "General Vessels (Non-Tankers)",
+    "geographic_application": "Zone I",
+    "rates": [
+      {
+        "gt_range": "1 to 5,000",
+        "fixed_part_eur": 1000.0,
+        "variable_part_eur_per_gt": 0.0
+      },
+      {
+        "gt_range": "5,001 to 10,000",
+        "fixed_part_eur": 0.0,
+        "variable_part_eur_per_gt": 0.225
+      },
+      {
+        "gt_range": "10,001 to 25,000",
+        "fixed_part_eur": 350.0,
+        "variable_part_eur_per_gt": 0.19
+      },
+      {
+        "gt_range": "25,001 to 50,000",
+        "fixed_part_eur": 2000.0,
+        "variable_part_eur_per_gt": 0.1255
+      },
+      {
+        "gt_range": "Over 50,001",
+        "fixed_part_eur": 2225.0,
+        "variable_part_eur_per_gt": 0.1255
+      }
+    ]
+  },
+  "tanker_maximum_tariff_zone_i": {
+    "vessel_type_application": "Tanker Ships (Buques Tanque)",
+    "geographic_application": "Zone I",
+    "rates": [
+      {
+        "gt_range": "1 to 5,000",
+        "fixed_part_eur": 1300.0,
+        "variable_part_eur_per_gt": 0.0
+      },
+      {
+        "gt_range": "5,001 to 10,000",
+        "fixed_part_eur": -1975.0,
+        "variable_part_eur_per_gt": 0.6998
+      },
+      {
+        "gt_range": "10,001 to 25,000",
+        "fixed_part_eur": 1525.0,
+        "variable_part_eur_per_gt": 0.35
+      },
+      {
+        "gt_range": "25,001 to 50,000",
+        "fixed_part_eur": 1525.0,
+        "variable_part_eur_per_gt": 0.375
+      },
+      {
+        "gt_range": "Over 50,001",
+        "fixed_part_eur": 1525.0,
+        "variable_part_eur_per_gt": 0.5
+      }
+    ]
+  },
+  "tanker_maximum_tariff_zone_ii": {
+    "vessel_type_application": "Tanker Ships (Buques Tanque)",
+    "geographic_application": "Zone II (Campo de Boyas)",
+    "rates": [
+      {
+        "gt_range": "All tonnage ranges",
+        "fixed_part_eur": 0.0,
+        "variable_part_eur_per_gt": 0.5
+      }
+    ]
+  },
+  "surcharges_and_multipliers": [
+    {
+      "name": "Vessel Without Engine (Sin Máquina)",
+      "condition": "Maneuvers for vessels with inactive or deficient propulsion",
+      "surcharge_pct": 50.0,
+      "multiplier": 1.5,
+      "applied_to": "Total established tariff (Fixed + Variable) for the corresponding range and type"
+    },
+    {
+      "name": "Movement Along Same Pier",
+      "condition": "Vessel shifting position within the same berth",
+      "surcharge_pct": -50.0,
+      "multiplier": 0.5,
+      "applied_to": "Maximum tariff established by vessel type and GT range"
+    },
+    {
+      "name": "Interior Movement",
+      "condition": "Vessel shifting between different interior locations",
+      "surcharge_pct": 0.0,
+      "multiplier": 1.0,
+      "note": "Charged at 100% of the standard maneuver tariff"
+    },
+    {
+      "name": "Maneuver Delay",
+      "condition": "Delay exceeding 30 minutes due to causes imputable to the vessel",
+      "surcharge_pct": 20.0,
+      "multiplier": 1.2,
+      "applied_to": "Total maneuver charge"
+    },
+    {
+      "name": "Maneuver Suspension",
+      "condition": "Service cancelled by vessel after tugs have arrived at the maneuver start point",
+      "fixed_penalty_eur": 1000.0,
+      "multiplier": null,
+      "note": "Unique fixed surcharge independent of vessel GT"
+    }
+  ],
+  "emergency_and_special_services": [
+    {
+      "service_type": "Special Services (Standard)",
+      "rate_eur_per_hour_tug": 1000.0,
+      "billing_unit": "Hour or fraction thereof",
+      "multiplier": 1.0
+    },
+    {
+      "service_type": "Firefighting (Extinción de Incendios)",
+      "rate_eur_per_hour_tug": 3796.55,
+      "billing_unit": "Hour or fraction thereof",
+      "note": "Includes tugboat and corresponding crew",
+      "multiplier": 1.0
+    },
+    {
+      "service_type": "Pollution Control, Salvage, or General Emergency",
+      "rate_eur_per_hour_tug": 2200.0,
+      "billing_unit": "Hour or fraction thereof",
+      "multiplier": 1.0
+    }
+  ],
+  "administrative_subtext_and_fees": {
+    "activity_fee_tasa_de_actividad": {
+      "rate_eur_per_gt": 0.00245,
+      "calculation_basis": "Applied to the GT of the vessel served",
+      "note": "Payable by the license holder per service"
+    },
+    "occupation_fee_tasa_de_ocupacion": {
+      "condition": "Applicable if the service provider utilizes a domain concession",
+      "note": "Governed by Articles 173 to 182 of TRLPEMM"
+    },
+    "temporary_service_suspension": {
+      "condition": "Non-payment of tariffs for at least one month after formal request",
+      "requirement": "Requires explicit authorization from the Port Authority and 15-day resolution period"
+    }
+  }
+}

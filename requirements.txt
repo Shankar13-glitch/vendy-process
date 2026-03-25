@@ -1,0 +1,8 @@
+pdfplumber
+pytesseract
+pillow
+chromadb
+sentence-transformers
+python-dotenv
+streamlit
+pymupdf

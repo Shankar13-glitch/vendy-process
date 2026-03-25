@@ -1,0 +1,34 @@
+{
+  "vessel": {
+    "name": "STI FINCHLEY",
+    "imo": "9696565",
+    "gt": 24230
+  },
+  "voyage": "TFIN-164",
+  "port": "Huelva",
+  "events": [
+    {
+      "type": "Berth",
+      "service_type": "Berth",
+      "date": "2026-02-21",
+      "tugs_alongside_time": "13:36",
+      "first_line_ashore_time": "14:00",
+      "all_fast_time": "14:48",
+      "tugs_away_time": "14:48",
+      "tug_count": 2,
+      "duration_mins": 72,
+      "note": "Tugs Alongside 13:36 -> All Fast/Tugs Away 14:48 = 72min. Threshold General Traffic = 80min -> no delay surcharge"
+    },
+    {
+      "type": "Unberth",
+      "service_type": "Unberth",
+      "date": "2026-02-24",
+      "tugs_alongside_time": "15:12",
+      "last_line_time": "15:36",
+      "tugs_away_time": "15:42",
+      "tug_count": 2,
+      "duration_mins": 30,
+      "note": "Tugs Alongside 15:12 -> Tugs Away 15:42 = 30min. Well under 80min threshold."
+    }
+  ]
+}

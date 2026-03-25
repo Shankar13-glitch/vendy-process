@@ -1,0 +1,27 @@
+{
+  "vessel": {
+    "name": "ELBABE",
+    "imo": "9725471",
+    "flag": "Marshall Islands",
+    "loa": "199,99",
+    "gt": "34.553"
+  },
+  "port": "Ghent",
+  "voyage": "4",
+  "events": [
+    {
+      "type": "Inward",
+      "date": "2025-12-18",
+      "time": "05:22",
+      "notes": "First line ashore 0522, All fast 0555, entered Terneuzen lock 0120, cleared 0230"
+    },
+    {
+      "type": "Departure",
+      "date": "2025-12-22",
+      "time": "00:00",
+      "tug_count": 2,
+      "notes": "ETD 22-Dec-2025 confirmed by agent email. SOF shows 21-Dec with blank time — date discrepancy flagged.",
+      "sof_date_discrepancy": "SOF records vessel sailed 21-Dec-2025 (blank time); agent email and invoice confirm ETD 22-Dec-2025"
+    }
+  ]
+}

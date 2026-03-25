@@ -1,0 +1,30 @@
+{
+  "vessel": {
+    "name": "OBSIDIAN",
+    "imo": "9311018",
+    "grt": 29767
+  },
+  "imo": "9311018",
+  "voyage": "MZT-2508",
+  "port": "Mazatlan",
+  "events": [
+    {
+      "type": "Berth",
+      "service_type": "Berth",
+      "date": "2025-08-12",
+      "start_time": "13:36",
+      "end_time": "15:06",
+      "tug_count": 2,
+      "note": "SOF: 1336-1506 TUGBOATS ASSISTANCE (2). Tug boleta times 13:20-15:00 (billing start = 20min pre-service)"
+    },
+    {
+      "type": "Unberthing",
+      "service_type": "Unberthing",
+      "date": "2025-08-14",
+      "start_time": "06:00",
+      "end_time": "06:18",
+      "tug_count": 2,
+      "note": "SOF: 0600-0618 TUGBOATS ASSISTANCE (2). Duration 18min < 1hr -> 1hr minimum billing"
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "port_metadata": {
+    "port_names": [
+      "Las Palmas",
+      "Arrecife",
+      "Puerto del Rosario"
+    ],
+    "country": "Spain",
+    "provider": "Boluda Towage Spain, SL",
+    "effective_date": "2025-01-16",
+    "currency": "EUR (€)",
+    "vessel_dimension_unit": "Gross Tonnage (GT)",
+    "vessel_dimension_source": "1969 London Convention"
+  },
+  "billing_logic_definitions": {
+    "standard_calculation_formula": "Rate = Fixed Part + (Variable Part * Gross Tonnage)",
+    "standard_duration_limit": {
+      "value": 60,
+      "unit": "minutes",
+      "note": "Considered usual duration for tugboats with power equal to or greater than 2500 hp."
+    }
+  },
+  "tariff_matrix_general_standard": [
+    {
+      "up_to_gt": 500,
+      "fixed_part": 184.07,
+      "variable_part": 0.03491916
+    },
+    {
+      "up_to_gt": 1500,
+      "fixed_part": 219.12,
+      "variable_part": 0.05869723
+    },
+    {
+      "up_to_gt": 3000,
+      "fixed_part": 271.71,
+      "variable_part": 0.06118721
+    },
+    {
+      "up_to_gt": 5000,
+      "fixed_part": 306.77,
+      "variable_part": 0.06302759
+    },
+    {
+      "up_to_gt": 10000,
+      "fixed_part": 543.42,
+      "variable_part": 0.06443042
+    },
+    {
+      "up_to_gt": 15000,
+      "fixed_part": 745.02,
+      "variable_part": 0.07884829
+    },
+    {
+      "up_to_gt": 20000,
+      "fixed_part": 683.66,
+      "variable_part": 0.08313451
+    },
+    {
+      "up_to_gt": 25000,
+      "fixed_part": 955.36,
+      "variable_part": 0.10181173
+    },
+    {
+      "up_to_gt": 30000,
+      "fixed_part": 834.42,
+      "variable_part": 0.10886714
+    },
+    {
+      "up_to_gt": 35000,
+      "fixed_part": 845.81,
+      "variable_part": 0.10856969
+    },
+    {
+      "up_to_gt": 40000,
+      "fixed_part": 972.89,
+      "variable_part": 0.1148805
+    },
+    {
+      "up_to_gt": 45000,
+      "fixed_part": 850.19,
+      "variable_part": 0.11795675
+    },
+    {
+      "up_to_gt": 50000,
+      "fixed_part": 894.01,
+      "variable_part": 0.11821103
+    },
+    {
+      "up_to_gt": 55000,
+      "fixed_part": 832.66,
+      "variable_part": 0.12093705
+    },
+    {
+      "up_to_gt": 60000,
+      "fixed_part": 876.48,
+      "variable_part": 0.12122587
+    },
+    {
+      "up_to_gt": 65000,
+      "fixed_part": 894.01,
+      "variable_part": 0.1236717
+    },
+    {
+      "up_to_gt": 70000,
+      "fixed_part": 964.13,
+      "variable_part": 0.13136712
+    },
+    {
+      "up_to_gt": 75000,
+      "fixed_part": 920.31,
+      "variable_part": 0.13486556
+    },
+    {
+      "up_to_gt": 80000,
+      "fixed_part": 937.83,
+      "variable_part": 0.13486556
+    },
+    {
+      "up_to_gt": 999999,
+      "fixed_part": 946.6,
+      "variable_part": 0.13486556
+    }
+  ],
+  "surcharges_and_multipliers": [
+    {
+      "name": "Vessel without propeller",
+      "vessel_condition": "Non-propelled / Dead ship",
+      "surcharge_pct": 50.0,
+      "multiplier": 1.5,
+      "applied_to": "Standard rates"
+    },
+    {
+      "name": "Boatyard or Syncrolift Maneuver",
+      "terminal_specific": "Entry or exit from boatyard or syncrolift facilities",
+      "surcharge_pct": 50.0,
+      "multiplier": 1.5,
+      "applied_to": "Standard rates"
+    },
+    {
+      "name": "Vessel Caused Delays",
+      "condition": "Delays caused by the vessel during the delivery of service",
+      "surcharge_pct": 50.0,
+      "multiplier": 1.5,
+      "applied_to": "Standard rates"
+    },
+    {
+      "name": "Small Tugboat Surcharge",
+      "condition": "Service provided by tugboats of specific dimensions",
+      "tug_specifications": "Length < 20 m and draft <= 3 m",
+      "fixed_surcharge_eur": 383.38,
+      "billing_unit": "per hour or fraction",
+      "multiplier": 1.0
+    }
+  ],
+  "reductions_and_multipliers": [
+    {
+      "name": "Provider Caused Delay",
+      "condition": "Delays by the service renderer at the start of service",
+      "reduction_pct": 50.0,
+      "multiplier": 0.5,
+      "applied_to": "Standard rates"
+    },
+    {
+      "name": "Escorting Service",
+      "service_type": "Escorting vessels without active towing",
+      "reduction_pct": 50.0,
+      "multiplier": 0.5,
+      "applied_to": "Standard rates"
+    }
+  ],
+  "special_maneuver_hourly_rates": [
+    {
+      "description": "Maneuvers with a duration longer than 60 minutes",
+      "tug_power_specification": "Power >= 2500 hp",
+      "rate_eur": 1560.89,
+      "billing_unit": "per hour or fraction",
+      "note": "This is also defined as the maximum rate per hour or fraction for these tugboats"
+    },
+    {
+      "description": "Maneuvers with small tugboats",
+      "tug_specification": "Length < 20 m and draft <= 3 m",
+      "rate_eur": 383.38,
+      "billing_unit": "per hour or fraction",
+      "note": "Maximum rate per hour for maneuvers with these specific tug dimensions"
+    }
+  ],
+  "administrative_rules": {
+    "cancellation_policy": {
+      "condition": "Service hired but not rendered due to Captain's orders",
+      "charge_pct": 50.0,
+      "multiplier": 0.5,
+      "applied_to": "Maximum rate",
+      "sub_text": "Applied regardless of whether the tugboat has unberthed or is en route."
+    }
+  }
+}
