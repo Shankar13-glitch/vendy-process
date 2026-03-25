@@ -68,7 +68,7 @@ html, body, [class*="css"] {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 .stApp { background-color: #f0f3f9; }
-.block-container { padding-top: 1.5rem !important; padding-bottom: 3rem !important; }
+.block-container { padding-top: 3.5rem !important; padding-bottom: 3rem !important; }
 [data-testid="stHeader"] { background: rgba(240,243,249,0.97); backdrop-filter: blur(4px); }
 
 /* ── Tabs ── */
@@ -273,19 +273,16 @@ with tab_verify:
     background: linear-gradient(135deg, #0d1f3c 0%, #1a3a6b 100%);
     padding: 2rem 2.5rem 1.75rem;
     border-radius: 12px;
-    margin-top: 0.75rem;
+    margin-top: 2rem;
     margin-bottom: 1.75rem;
     border-left: 4px solid #c9a84c;
     box-shadow: 0 6px 28px rgba(13,31,60,0.18);
 ">
     <div style="color:#c9a84c;font-size:0.7rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:0.55rem;">
-        Scorpio Ship Management
+        GET Marine Mgt
     </div>
     <div style="color:white;font-size:2.1rem;font-weight:700;font-style:italic;font-family:Georgia,serif;line-height:1.2;">
         VI Calculator
-    </div>
-    <div style="color:#8eadd4;font-size:0.87rem;margin-top:0.55rem;font-weight:400;">
-        Tugboat invoice verification engine &nbsp;·&nbsp; Upload invoice &amp; SOF &nbsp;·&nbsp; Select port &nbsp;·&nbsp; Run
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -703,7 +700,7 @@ with tab_log:
     box-shadow: 0 6px 28px rgba(13,31,60,0.18);
 ">
     <div style="color:#c9a84c;font-size:0.7rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:0.4rem;">
-        Scorpio Ship Management
+        GET Marine Mgt
     </div>
     <div style="color:white;font-size:1.6rem;font-weight:700;font-family:Georgia,serif;">
         Officer Comments Log
