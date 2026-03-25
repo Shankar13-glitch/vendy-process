@@ -284,6 +284,9 @@ with tab_verify:
     <div style="color:white;font-size:2.1rem;font-weight:700;font-style:italic;font-family:Georgia,serif;line-height:1.2;">
         VI Calculator
     </div>
+    <div style="color:#8eadd4;font-size:0.87rem;margin-top:0.55rem;font-weight:400;">
+        Upload invoice &amp; SOF &nbsp;·&nbsp; Select port &nbsp;·&nbsp; Run
+    </div>
 </div>
 """, unsafe_allow_html=True)
 
