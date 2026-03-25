@@ -134,7 +134,7 @@ tab_verify, tab_log = st.tabs(["⚓ Verification", "📋 Officer Comments Log"])
 # TAB 1 — VERIFICATION
 # ══════════════════════════════════════════════
 with tab_verify:
-    st.title("VI Calculator")
+    st.markdown("# *VI Calculator*")
     st.caption("Upload invoice and SOF files, select a port, then run the verification engine.")
 
     # ── Upload boxes ──────────────────────────
