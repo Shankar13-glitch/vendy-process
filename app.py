@@ -14,7 +14,7 @@ ROOT = pathlib.Path(__file__).parent
 # Page config
 # ─────────────────────────────────────────────
 st.set_page_config(
-    page_title="Vendy — Tugboat Invoice Verifier",
+    page_title="VI Calculator",
     page_icon="⚓",
     layout="wide",
 )
@@ -134,7 +134,7 @@ tab_verify, tab_log = st.tabs(["⚓ Verification", "📋 Officer Comments Log"])
 # TAB 1 — VERIFICATION
 # ══════════════════════════════════════════════
 with tab_verify:
-    st.title("Vendy — Tugboat Invoice Verifier")
+    st.title("VI Calculator")
     st.caption("Upload invoice and SOF files, select a port, then run the verification engine.")
 
     # ── Upload boxes ──────────────────────────
