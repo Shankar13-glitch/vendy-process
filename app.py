@@ -57,6 +57,135 @@ CONFIDENCE_COLORS = {
 
 COMMENTS_FILE = ROOT / "officer_comments.json"
 
+# ─────────────────────────────────────────────
+# Premium styling
+# ─────────────────────────────────────────────
+PREMIUM_CSS = """
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+.stApp { background-color: #f0f3f9; }
+.block-container { padding-top: 1.5rem !important; padding-bottom: 3rem !important; }
+[data-testid="stHeader"] { background: rgba(240,243,249,0.97); backdrop-filter: blur(4px); }
+
+/* ── Tabs ── */
+.stTabs [data-baseweb="tab-list"] {
+    background: #0d1f3c; border-radius: 10px 10px 0 0;
+    padding: 0.3rem 0.6rem; gap: 0.3rem; border-bottom: none;
+}
+.stTabs [data-baseweb="tab"] {
+    color: #7a9cbf !important; font-weight: 500; font-size: 0.9rem;
+    border-radius: 7px; padding: 0.45rem 1.2rem; border: none !important;
+    background: transparent !important;
+}
+.stTabs [aria-selected="true"] {
+    background: #c9a84c !important; color: #0d1f3c !important; font-weight: 700 !important;
+}
+.stTabs [data-baseweb="tab-panel"] { padding-top: 1.5rem; }
+
+/* ── Buttons ── */
+button[kind="primary"] {
+    background: linear-gradient(135deg, #c9a84c 0%, #ddb94e 100%) !important;
+    color: #0d1f3c !important; font-weight: 700 !important; font-size: 0.95rem !important;
+    border: none !important; border-radius: 8px !important;
+    padding: 0.55rem 2rem !important; letter-spacing: 0.04em !important;
+    box-shadow: 0 3px 10px rgba(201,168,76,0.35) !important;
+}
+button[kind="primary"]:hover {
+    box-shadow: 0 5px 18px rgba(201,168,76,0.48) !important; filter: brightness(1.05) !important;
+}
+button[kind="secondary"] {
+    border: 1.5px solid #c0cce5 !important; border-radius: 8px !important;
+    color: #0d1f3c !important; font-weight: 600 !important; background: white !important;
+}
+button[kind="secondary"]:hover { background: #eef2fa !important; border-color: #c9a84c !important; }
+
+/* ── Metrics ── */
+[data-testid="stMetric"] {
+    background: white; border: 1px solid #dde4f0; border-radius: 10px;
+    padding: 1rem 1.2rem !important; box-shadow: 0 1px 6px rgba(13,31,60,0.06);
+}
+[data-testid="stMetricLabel"] > div {
+    color: #6b7a9d !important; font-size: 0.7rem !important; font-weight: 700 !important;
+    text-transform: uppercase !important; letter-spacing: 0.1em !important;
+}
+[data-testid="stMetricValue"] > div {
+    color: #0d1f3c !important; font-weight: 700 !important; font-size: 1rem !important;
+}
+
+/* ── Expanders (audit trail / paste boxes) ── */
+details {
+    background: white !important; border: 1px solid #dde4f0 !important;
+    border-radius: 9px !important; margin-bottom: 0.5rem !important;
+}
+details summary {
+    color: #1a3a6b !important; font-weight: 500 !important; padding: 0.6rem 0.85rem !important;
+}
+details[open] summary { border-bottom: 1px solid #edf0f7; }
+
+/* ── File uploader ── */
+[data-testid="stFileUploader"] section {
+    border: 1.5px dashed #b8c8e0 !important; border-radius: 9px !important;
+    background: #f7f9fd !important; transition: border-color 0.2s;
+}
+[data-testid="stFileUploader"] section:hover { border-color: #c9a84c !important; }
+
+/* ── Inputs / selects / textareas ── */
+[data-baseweb="select"] > div { border-radius: 8px !important; border-color: #c0cce5 !important; background: white !important; }
+textarea { border-radius: 8px !important; border-color: #c0cce5 !important; background: #f7f9fd !important; font-size: 0.82rem !important; }
+input[type="number"] { border-radius: 8px !important; }
+
+/* ── Alerts ── */
+[data-testid="stAlert"] { border-radius: 9px !important; border-left-width: 4px !important; }
+
+/* ── Dataframe ── */
+[data-testid="stDataFrame"] {
+    border-radius: 10px !important; overflow: hidden;
+    border: 1px solid #dde4f0 !important; box-shadow: 0 1px 6px rgba(13,31,60,0.05) !important;
+}
+
+/* ── Table (adjustment lines) ── */
+table th {
+    background: #0d1f3c !important; color: #c9a84c !important; font-size: 0.75rem !important;
+    font-weight: 700 !important; letter-spacing: 0.08em !important;
+    text-transform: uppercase !important; padding: 0.6rem 0.9rem !important;
+}
+table td {
+    background: white !important; color: #1a2540 !important; font-size: 0.88rem !important;
+    padding: 0.5rem 0.9rem !important; border-bottom: 1px solid #edf0f7 !important;
+}
+
+/* ── Dividers ── */
+hr { border-color: #dde4f0 !important; margin: 1.25rem 0 !important; }
+
+/* ── Captions ── */
+[data-testid="stCaptionContainer"] p { color: #6b7a9d !important; }
+
+/* ── Download button ── */
+.stDownloadButton > button {
+    border: 1.5px solid #1a3a6b !important; border-radius: 8px !important;
+    color: #1a3a6b !important; font-weight: 600 !important; background: white !important;
+}
+.stDownloadButton > button:hover { background: #eef2fa !important; }
+
+/* ── Headings (upload box labels h4) ── */
+h4 { color: #0d1f3c !important; font-weight: 700 !important; margin-bottom: 0.4rem !important; }
+</style>
+"""
+
+
+def _section_header(text: str) -> None:
+    """Render a premium styled section header (replaces st.subheader)."""
+    st.markdown(
+        f'<div style="border-left:3px solid #c9a84c;padding:0.15rem 0 0.15rem 0.85rem;'
+        f'margin:1.5rem 0 0.9rem;color:#0d1f3c;font-size:1.05rem;font-weight:700;'
+        f'letter-spacing:0.02em;">{text}</div>',
+        unsafe_allow_html=True,
+    )
+
 
 def load_comments() -> list:
     if COMMENTS_FILE.exists():
@@ -126,6 +255,11 @@ profiles_data = load_profiles()
 all_port_keys = sorted(profiles_data["calculation_profiles"].keys())
 
 # ─────────────────────────────────────────────
+# Inject global styles
+# ─────────────────────────────────────────────
+st.markdown(PREMIUM_CSS, unsafe_allow_html=True)
+
+# ─────────────────────────────────────────────
 # Top-level tabs
 # ─────────────────────────────────────────────
 tab_verify, tab_log = st.tabs(["⚓ Verification", "📋 Officer Comments Log"])
@@ -134,8 +268,26 @@ tab_verify, tab_log = st.tabs(["⚓ Verification", "📋 Officer Comments Log"])
 # TAB 1 — VERIFICATION
 # ══════════════════════════════════════════════
 with tab_verify:
-    st.markdown("# *VI Calculator*")
-    st.caption("Upload invoice and SOF files, select a port, then run the verification engine.")
+    st.markdown("""
+<div style="
+    background: linear-gradient(135deg, #0d1f3c 0%, #1a3a6b 100%);
+    padding: 2rem 2.5rem 1.75rem;
+    border-radius: 12px;
+    margin-bottom: 1.75rem;
+    border-left: 4px solid #c9a84c;
+    box-shadow: 0 6px 28px rgba(13,31,60,0.18);
+">
+    <div style="color:#c9a84c;font-size:0.7rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:0.55rem;">
+        Scorpio Ship Management
+    </div>
+    <div style="color:white;font-size:2.1rem;font-weight:700;font-style:italic;font-family:Georgia,serif;line-height:1.2;">
+        VI Calculator
+    </div>
+    <div style="color:#8eadd4;font-size:0.87rem;margin-top:0.55rem;font-weight:400;">
+        Tugboat invoice verification engine &nbsp;·&nbsp; Upload invoice &amp; SOF &nbsp;·&nbsp; Select port &nbsp;·&nbsp; Run
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
     # ── JSON validation helper ─────────────────
     def _valid_json(s: str) -> bool:
@@ -290,15 +442,37 @@ with tab_verify:
 
         # ── 8a. Verdict banner ─────────────────
         bg, fg = VERDICT_COLORS.get(verdict, ("#e9ecef", "#212529"))
-        st.markdown(
-            f'<div style="background:{bg};color:{fg};padding:16px 24px;border-radius:8px;'
-            f'font-size:1.4em;font-weight:700;margin:16px 0;text-align:center;">'
-            f'{verdict}</div>',
-            unsafe_allow_html=True,
-        )
+        VERDICT_ICONS   = {"AUTO_APPROVED": "✅", "MISMATCH": "⚠️", "REVIEW_REQUIRED": "🔍"}
+        VERDICT_LABELS  = {
+            "AUTO_APPROVED":   "All charges verified within tolerance",
+            "MISMATCH":        "One or more line items exceed the variance threshold",
+            "REVIEW_REQUIRED": "Engine flagged items requiring human review",
+        }
+        VERDICT_BORDERS = {"AUTO_APPROVED": "#155724", "MISMATCH": "#721c24", "REVIEW_REQUIRED": "#856404"}
+        v_icon   = VERDICT_ICONS.get(verdict, "")
+        v_label  = VERDICT_LABELS.get(verdict, "")
+        v_border = VERDICT_BORDERS.get(verdict, "#6c757d")
+        cur_v    = result.get("currency", "EUR")
+        st.markdown(f"""
+<div style="background:{bg};color:{fg};padding:1.4rem 2rem;border-radius:10px;
+            margin:1.25rem 0;border-left:5px solid {v_border};
+            box-shadow:0 2px 14px rgba(0,0,0,0.08);">
+  <div style="font-size:1.55rem;font-weight:800;letter-spacing:0.03em;">
+      {v_icon}&nbsp;&nbsp;{verdict}
+  </div>
+  <div style="font-size:0.87rem;margin-top:0.3rem;opacity:0.85;">{v_label}</div>
+  <div style="font-size:0.8rem;margin-top:0.55rem;opacity:0.7;">
+      Expected: <strong>{fmt_eur(result.get("total_expected",0), cur_v)}</strong>
+      &nbsp;·&nbsp;
+      Invoiced: <strong>{fmt_eur(result.get("total_invoiced",0), cur_v)}</strong>
+      &nbsp;·&nbsp;
+      Variance: <strong>{fmt_eur(result.get("total_variance",0), cur_v)}</strong>
+  </div>
+</div>
+""", unsafe_allow_html=True)
 
         # ── 8b. Invoice header ──────────────────
-        st.subheader("Invoice Summary")
+        _section_header("Invoice Summary")
         h1, h2, h3, h4 = st.columns(4)
         h1.metric("Vessel",    result.get("vessel_name", "—"))
         h2.metric("Port",      result.get("port", "—"))
@@ -323,7 +497,7 @@ with tab_verify:
         st.divider()
 
         # ── 8c–8h. Line items ──────────────────
-        st.subheader("Line Items")
+        _section_header("Line Items")
 
         line_items = result.get("line_items", [])
         currency   = result.get("currency", "EUR")
@@ -339,18 +513,33 @@ with tab_verify:
             cl        = li.get("confidence_label", "")
             cs        = li.get("confidence_score", 0.0)
 
-            # Row header
-            rc1, rc2, rc3, rc4, rc5 = st.columns([2, 2, 2, 1.5, 1.5])
-            rc1.markdown(f"**Line {ln}** — {desc}")
-            rc2.markdown(f"Expected: **{fmt_eur(expected, currency)}**")
-            rc3.markdown(f"Invoiced: **{fmt_eur(invoiced, currency)}**")
-            rc4.markdown(
-                f"Variance: **{var_pct:+.2f}%**<br><small>({fmt_eur(var_amt, currency)})</small>",
-                unsafe_allow_html=True,
-            )
-            rc5.markdown(verdict_badge(lv), unsafe_allow_html=True)
+            # ── Card header row ───────────────────
+            lv_bg, lv_fg = LINE_VERDICT_COLORS.get(lv, ("#6c757d", "white"))
+            st.markdown(f"""
+<div style="background:white;border:1px solid #dde4f0;border-radius:10px;
+            padding:0.9rem 1.25rem 0.75rem;margin-bottom:0.5rem;
+            box-shadow:0 1px 5px rgba(13,31,60,0.06);
+            border-left:4px solid {lv_bg};">
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;">
+    <div style="font-weight:700;color:#0d1f3c;font-size:0.97rem;">
+        Line {ln} &nbsp;<span style="color:#6b7a9d;font-weight:400;">—</span>&nbsp; {desc}
+    </div>
+    <span style="background:{lv_bg};color:{lv_fg};padding:3px 14px;border-radius:20px;
+                 font-size:0.78rem;font-weight:700;letter-spacing:0.05em;">{lv}</span>
+  </div>
+  <div style="display:flex;gap:2.5rem;margin-top:0.55rem;flex-wrap:wrap;">
+    <div><span style="color:#6b7a9d;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Expected</span><br>
+         <span style="color:#0d1f3c;font-weight:600;font-size:0.92rem;">{fmt_eur(expected, currency)}</span></div>
+    <div><span style="color:#6b7a9d;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Invoiced</span><br>
+         <span style="color:#0d1f3c;font-weight:600;font-size:0.92rem;">{fmt_eur(invoiced, currency)}</span></div>
+    <div><span style="color:#6b7a9d;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Variance</span><br>
+         <span style="color:{"#dc3545" if abs(var_pct)>1 else "#28a745"};font-weight:700;font-size:0.92rem;">{var_pct:+.2f}%</span>
+         <span style="color:#6b7a9d;font-size:0.78rem;"> ({fmt_eur(var_amt, currency)})</span></div>
+  </div>
+</div>
+""", unsafe_allow_html=True)
 
-            # ── 8d. Audit trail expander ──────
+            # ── 8d. Audit trail expander (sits below the card) ──────
             with st.expander(f"Line {ln} — audit trail & details"):
                 ac1, ac2 = st.columns(2)
                 with ac1:
@@ -413,7 +602,7 @@ with tab_verify:
                         key=f"override_line_{ln}",
                     )
 
-            st.markdown("---")
+            st.markdown('<div style="margin-bottom:1.25rem;"></div>', unsafe_allow_html=True)
 
         # ── 8g. Summary notes ──────────────────
         notes = result.get("summary_notes") or []
@@ -422,7 +611,7 @@ with tab_verify:
 
         # ── 8f. Adjustment lines ───────────────
         if adjustment_lines:
-            st.subheader("Informational — not tariff validated")
+            _section_header("Informational — not tariff validated")
             st.caption("Adjustment lines (bunker surcharges, fuel adjustments, discounts) are shown here for completeness only.")
             adj_rows = []
             for a in adjustment_lines:
@@ -491,7 +680,7 @@ with tab_verify:
         st.divider()
 
         # ── 8k. Approve / Escalate ─────────────
-        st.subheader("Officer Action")
+        _section_header("Officer Action")
         ba1, ba2 = st.columns(2)
         if ba1.button("✓ Approve Invoice", use_container_width=True, key="approve_btn"):
             st.success("Invoice approved by officer.")
@@ -503,8 +692,26 @@ with tab_verify:
 # TAB 2 — OFFICER COMMENTS LOG
 # ══════════════════════════════════════════════
 with tab_log:
-    st.title("Officer Comments Log")
-    st.caption("All saved officer annotations, filterable by port. Export as JSON for tariff calibration.")
+    st.markdown("""
+<div style="
+    background: linear-gradient(135deg, #0d1f3c 0%, #1a3a6b 100%);
+    padding: 1.5rem 2.5rem 1.4rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #c9a84c;
+    box-shadow: 0 6px 28px rgba(13,31,60,0.18);
+">
+    <div style="color:#c9a84c;font-size:0.7rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:0.4rem;">
+        Scorpio Ship Management
+    </div>
+    <div style="color:white;font-size:1.6rem;font-weight:700;font-family:Georgia,serif;">
+        Officer Comments Log
+    </div>
+    <div style="color:#8eadd4;font-size:0.87rem;margin-top:0.4rem;">
+        All saved annotations, filterable by port &nbsp;·&nbsp; Export as JSON for tariff calibration
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
     comments = load_comments()
 
