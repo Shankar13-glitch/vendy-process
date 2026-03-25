@@ -273,6 +273,7 @@ with tab_verify:
     background: linear-gradient(135deg, #0d1f3c 0%, #1a3a6b 100%);
     padding: 2rem 2.5rem 1.75rem;
     border-radius: 12px;
+    margin-top: 0.75rem;
     margin-bottom: 1.75rem;
     border-left: 4px solid #c9a84c;
     box-shadow: 0 6px 28px rgba(13,31,60,0.18);
