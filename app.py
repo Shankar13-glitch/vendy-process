@@ -137,6 +137,28 @@ with tab_verify:
     st.markdown("# *VI Calculator*")
     st.caption("Upload invoice and SOF files, select a port, then run the verification engine.")
 
+    # ── JSON validation helper ─────────────────
+    def _valid_json(s: str) -> bool:
+        if not s:
+            return False
+        try:
+            json.loads(s)
+            return True
+        except Exception:
+            return False
+
+    def _json_status(s: str) -> None:
+        """Render a small ✅/❌ status line below a paste area."""
+        if not s.strip():
+            return
+        try:
+            json.loads(s)
+            st.markdown('<small style="color:#28a745">✅ Valid JSON</small>',
+                        unsafe_allow_html=True)
+        except Exception as e:
+            st.markdown(f'<small style="color:#dc3545">❌ Invalid JSON — {e}</small>',
+                        unsafe_allow_html=True)
+
     # ── Upload boxes ──────────────────────────
     col_inv, col_sof, col_oth = st.columns(3)
 
@@ -148,6 +170,15 @@ with tab_verify:
             key="invoice_upload",
             label_visibility="collapsed",
         )
+        with st.expander("Or paste JSON directly"):
+            st.text_area(
+                "Invoice JSON text",
+                key="invoice_paste",
+                height=120,
+                placeholder='{\n  "invoice_reference": "...",\n  "line_items": [...]\n}',
+                label_visibility="collapsed",
+            )
+            _json_status(st.session_state.get("invoice_paste", ""))
 
     with col_sof:
         st.markdown("#### 📋 SOF")
@@ -157,6 +188,15 @@ with tab_verify:
             key="sof_upload",
             label_visibility="collapsed",
         )
+        with st.expander("Or paste JSON directly"):
+            st.text_area(
+                "SOF JSON text",
+                key="sof_paste",
+                height=120,
+                placeholder='{\n  "vessel": {...},\n  "events": [...]\n}',
+                label_visibility="collapsed",
+            )
+            _json_status(st.session_state.get("sof_paste", ""))
 
     with col_oth:
         st.markdown("#### 📎 Others")
@@ -178,8 +218,14 @@ with tab_verify:
     selected_port = st.selectbox("Select Port", options=all_port_keys, index=None,
                                  placeholder="Choose a port…")
 
+    # ── Resolve inputs (file takes precedence over paste) ─────────────
+    invoice_text = st.session_state.get("invoice_paste", "").strip()
+    sof_text     = st.session_state.get("sof_paste", "").strip()
+    invoice_ready = invoice_file is not None or _valid_json(invoice_text)
+    sof_ready     = sof_file     is not None or _valid_json(sof_text)
+
     # ── Run button ────────────────────────────
-    can_run = invoice_file is not None and sof_file is not None and selected_port is not None
+    can_run = invoice_ready and sof_ready and selected_port is not None
     run_clicked = st.button(
         "▶ Run Verification",
         disabled=not can_run,
@@ -189,9 +235,9 @@ with tab_verify:
 
     if not can_run and not run_clicked:
         missing = []
-        if invoice_file is None:
+        if not invoice_ready:
             missing.append("invoice JSON")
-        if sof_file is None:
+        if not sof_ready:
             missing.append("SOF JSON")
         if selected_port is None:
             missing.append("port selection")
@@ -203,8 +249,8 @@ with tab_verify:
         try:
             from port_router import route  # imported late to avoid top-level failure
 
-            invoice_dict = json.load(invoice_file)
-            sof_dict     = json.load(sof_file)
+            invoice_dict = json.load(invoice_file) if invoice_file else json.loads(invoice_text)
+            sof_dict     = json.load(sof_file)     if sof_file     else json.loads(sof_text)
             tariff_dict  = load_tariff(selected_port)
 
             invoice_reference, vendor, vessel_name, service_date = normalise_invoice_fields(invoice_dict)
